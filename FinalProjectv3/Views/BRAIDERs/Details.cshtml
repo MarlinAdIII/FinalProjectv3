@@ -1,0 +1,99 @@
+﻿@model _540FinalProject.Models.BRAIDER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BraiderLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BRAIDER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FnameBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FnameBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MnameBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MnameBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LnameBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LnameBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CelBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CelBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountyBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountyBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCodeBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCodeBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserBraider)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDBraider }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

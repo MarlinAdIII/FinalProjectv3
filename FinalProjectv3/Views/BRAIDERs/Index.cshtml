@@ -1,0 +1,88 @@
+﻿@model IEnumerable<_540FinalProject.Models.BRAIDER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BraiderLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FnameBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MnameBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LnameBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CelBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountyBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCodeBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserBraider)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FnameBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MnameBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LnameBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CelBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StreetBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountyBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCodeBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserBraider)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDBraider }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDBraider }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDBraider })
+        </td>
+    </tr>
+}
+
+</table>

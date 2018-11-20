@@ -1,0 +1,94 @@
+﻿@model IEnumerable<_540FinalProject.Models.CLIENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FnameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MnameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LnameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CelClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountyClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCodeClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateClient)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FnameClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MnameClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LnameClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CelClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StreetClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountyClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCodeClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StateClient)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDClient }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDClient }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDClient })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model _540FinalProject.Models.APPOINTMENT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>APPOINTMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddTakeOffAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginnTimeAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginnTimeAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLIENT.FnameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLIENT.FnameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STYLE.DesigStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STYLE.DesigStyle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDAppoint }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

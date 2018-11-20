@@ -1,0 +1,107 @@
+﻿@model _540FinalProject.Models.CLIENT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLIENT</h4>
+    <hr />
+    <dl class="col-lg-push-0">
+        <dt>
+            @Html.DisplayNameFor(model => model.FnameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FnameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MnameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MnameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LnameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LnameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CelClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CelClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountyClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountyClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCodeClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCodeClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StateClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StateClient)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDClient }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

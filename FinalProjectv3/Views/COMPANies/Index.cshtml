@@ -1,0 +1,106 @@
+﻿@model IEnumerable<_540FinalProject.Models.COMPANY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TitleComp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetComp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountyComp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipcodeComp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailComp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebsiteComp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartPayeBraid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDOwnerBraider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostHairDeduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentBrader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceTakeOff)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TitleComp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StreetComp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountyComp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipcodeComp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailComp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebsiteComp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartPayeBraid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDOwnerBraider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostHairDeduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PercentBrader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceTakeOff)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDComp }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDComp }) |
+            @*Html.ActionLink("Delete", "Delete", new { id=item.IDComp })*@
+        </td>
+    </tr>
+}
+
+</table>

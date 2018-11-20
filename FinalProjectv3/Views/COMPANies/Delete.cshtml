@@ -1,0 +1,129 @@
+﻿@model _540FinalProject.Models.COMPANY
+
+@{
+    ViewBag.Title = "Delete";
+
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>COMPANY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TitleComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TitleComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneOffice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneOffice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountyComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountyComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipcodeComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipcodeComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebsiteComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebsiteComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartPayeBraid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartPayeBraid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDOwnerBraider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDOwnerBraider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostHairDeduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostHairDeduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentBrader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PercentBrader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceTakeOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceTakeOff)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
