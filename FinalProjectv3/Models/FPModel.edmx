@@ -1,0 +1,1993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinalProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APPOINTMENT">
+          <Key>
+            <PropertyRef Name="IDAppoint" />
+          </Key>
+          <Property Name="IDAppoint" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDClientAppoint" Type="int" Nullable="false" />
+          <Property Name="IDStypeAppoint" Type="tinyint" Nullable="false" />
+          <Property Name="DateAppoint" Type="datetime" Nullable="false" />
+          <Property Name="AddTakeOffAppoint" Type="bit" />
+          <Property Name="BeginnTimeAppoint" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Type" Type="smallint" />
+        </EntityType>
+        <EntityType Name="BRAIDER">
+          <Key>
+            <PropertyRef Name="IDBraider" />
+          </Key>
+          <Property Name="IDBraider" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FnameBraider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MnameBraider" Type="varchar" MaxLength="50" />
+          <Property Name="LnameBraider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneBraider" Type="varchar" MaxLength="14" />
+          <Property Name="CelBraider" Type="varchar" MaxLength="14" />
+          <Property Name="StreetBraider" Type="varchar" MaxLength="50" />
+          <Property Name="CountyBraider" Type="varchar" MaxLength="30" />
+          <Property Name="ZipCodeBraider" Type="smallint" />
+          <Property Name="EmailBraider" Type="varchar" MaxLength="50" />
+          <Property Name="IDUserBraider" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="CATALOG">
+          <Key>
+            <PropertyRef Name="IDCatalog" />
+          </Key>
+          <Property Name="IDCatalog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDVendor" Type="int" Nullable="false" />
+          <Property Name="IDProd" Type="int" Nullable="false" />
+          <Property Name="UnitType" Type="char" MaxLength="1" />
+          <Property Name="UnitPrice" Type="money" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="IDClient" />
+          </Key>
+          <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FnameClient" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MnameClient" Type="varchar" MaxLength="50" />
+          <Property Name="LnameClient" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneClient" Type="varchar" MaxLength="14" />
+          <Property Name="CelClient" Type="varchar" MaxLength="14" />
+          <Property Name="StreetClient" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountyClient" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ZipCodeClient" Type="smallint" Nullable="false" />
+          <Property Name="EmailClient" Type="varchar" MaxLength="50" />
+          <Property Name="StateClient" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="IDUserClient" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="COMPANY">
+          <Key>
+            <PropertyRef Name="IDComp" />
+          </Key>
+          <Property Name="IDComp" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleComp" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneOffice" Type="varchar" MaxLength="14" />
+          <Property Name="PhoneOwner" Type="varchar" MaxLength="14" />
+          <Property Name="StreetComp" Type="varchar" MaxLength="50" />
+          <Property Name="CountyComp" Type="varchar" MaxLength="30" />
+          <Property Name="ZipcodeComp" Type="smallint" />
+          <Property Name="EmailComp" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteComp" Type="varchar" MaxLength="50" />
+          <Property Name="PartPayeBraid" Type="float" />
+          <Property Name="IDOwnerBraider" Type="int" />
+          <Property Name="CostHairDeduct" Type="money" />
+          <Property Name="PercentBrader" Type="tinyint" />
+          <Property Name="PriceTakeOff" Type="money" />
+        </EntityType>
+        <EntityType Name="DESIGNWITH">
+          <Key>
+            <PropertyRef Name="IDDesignWith" />
+          </Key>
+          <Property Name="IDDesignWith" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDStyle" Type="tinyint" Nullable="false" />
+          <Property Name="IDHair" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISCOUNT">
+          <Key>
+            <PropertyRef Name="IDDiscount" />
+          </Key>
+          <Property Name="IDDiscount" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleDiscount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AmountDiscount" Type="money" />
+        </EntityType>
+        <EntityType Name="EXTRAT">
+          <Key>
+            <PropertyRef Name="IDExtrat" />
+          </Key>
+          <Property Name="IDExtrat" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleExtrat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EXTRATSTYLE">
+          <Key>
+            <PropertyRef Name="IDExtratStyle" />
+          </Key>
+          <Property Name="IDExtratStyle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDStyle" Type="tinyint" Nullable="false" />
+          <Property Name="IDExtrat" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HAIR">
+          <Key>
+            <PropertyRef Name="IDHair" />
+          </Key>
+          <Property Name="IDHair" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleHair" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="IDProd" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JOBCONSUMPTION">
+          <Key>
+            <PropertyRef Name="IDJobConsump" />
+          </Key>
+          <Property Name="IDJobConsump" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDJobDone" Type="int" Nullable="false" />
+          <Property Name="IDHair" Type="int" Nullable="false" />
+          <Property Name="QttyPacks" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JOBDONE">
+          <Key>
+            <PropertyRef Name="IDJobDone" />
+          </Key>
+          <Property Name="IDJobDone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDAppoint" Type="int" Nullable="false" />
+          <Property Name="DateJobDone" Type="datetime" Nullable="false" />
+          <Property Name="TimeEndJob" Type="time" Precision="7" Nullable="false" />
+          <Property Name="IDDiscount" Type="tinyint" />
+          <Property Name="DiscountAmount" Type="money" />
+          <Property Name="feedback" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="JOBEXECUTER">
+          <Key>
+            <PropertyRef Name="IDJobExecut" />
+          </Key>
+          <Property Name="IDJobExecut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDJobDone" Type="int" Nullable="false" />
+          <Property Name="IDBraider" Type="int" Nullable="false" />
+          <Property Name="BraidingLocat" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NEED">
+          <Key>
+            <PropertyRef Name="IDNeed" />
+          </Key>
+          <Property Name="IDNeed" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDClient" Type="int" Nullable="false" />
+          <Property Name="DateNeed" Type="date" />
+        </EntityType>
+        <EntityType Name="NEEDPRODUCT">
+          <Key>
+            <PropertyRef Name="IDNeedProd" />
+          </Key>
+          <Property Name="IDNeedProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNeed" Type="int" Nullable="false" />
+          <Property Name="IDProd" Type="int" Nullable="false" />
+          <Property Name="QttyNeed" Type="tinyint" />
+          <Property Name="UnitPrice" Type="money" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDVendor" Type="int" Nullable="false" />
+          <Property Name="DateOrder" Type="datetime" />
+          <Property Name="DescripOrder" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="ORDERPRODUCT">
+          <Key>
+            <PropertyRef Name="IDOrderProd" />
+          </Key>
+          <Property Name="IDOrderProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDOrder" Type="int" Nullable="false" />
+          <Property Name="IDProd" Type="int" Nullable="false" />
+          <Property Name="QttyOrder" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="IDProd" />
+          </Key>
+          <Property Name="IDProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleProd" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="IDTypeProd" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SKILLS">
+          <Key>
+            <PropertyRef Name="IDSkill" />
+          </Key>
+          <Property Name="IDSkill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDBraider" Type="int" Nullable="false" />
+          <Property Name="IDStyle" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STYLE">
+          <Key>
+            <PropertyRef Name="IDStyle" />
+          </Key>
+          <Property Name="IDStyle" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesigStyle" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="DescriptStyle" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="HairProvStyle" Type="bit" />
+          <Property Name="PriceStyle" Type="money" />
+          <Property Name="PriceExtrat" Type="money" />
+          <Property Name="PictureStyle" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="TYPEPRODUCT">
+          <Key>
+            <PropertyRef Name="IDTypeProd" />
+          </Key>
+          <Property Name="IDTypeProd" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleTypeProd" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="IDVendor" />
+          </Key>
+          <Property Name="IDVendor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleVendor" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="PhoneOffice" Type="varchar" MaxLength="14" />
+          <Property Name="PhoneCell" Type="varchar" MaxLength="14" />
+          <Property Name="StreetVendor" Type="varchar" MaxLength="50" />
+          <Property Name="CountyVendor" Type="varchar" MaxLength="30" />
+          <Property Name="ZipCodeVendor" Type="smallint" />
+          <Property Name="StateVendor" Type="char" MaxLength="2" />
+          <Property Name="EmailVendor" Type="varchar" MaxLength="50" />
+          <Property Name="WebSiteVendor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRAIDER_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BRAIDER">
+              <PropertyRef Name="IDUserBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLIENT_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CLIENT">
+              <PropertyRef Name="IDUserClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_BRAIDER">
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="0..1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAIDER">
+              <PropertyRef Name="IDBraider" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="IDOwnerBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPOINTMENT_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="APPOINTMENT" Type="Self.APPOINTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="APPOINTMENT">
+              <PropertyRef Name="IDClientAppoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPOINTMENT_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="APPOINTMENT" Type="Self.APPOINTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="APPOINTMENT">
+              <PropertyRef Name="IDStypeAppoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="CATALOG" Type="Self.CATALOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="CATALOG">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="1" />
+          <End Role="CATALOG" Type="Self.CATALOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="IDVendor" />
+            </Principal>
+            <Dependent Role="CATALOG">
+              <PropertyRef Name="IDVendor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DESIGNWITH_HAIR">
+          <End Role="HAIR" Type="Self.HAIR" Multiplicity="1" />
+          <End Role="DESIGNWITH" Type="Self.DESIGNWITH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAIR">
+              <PropertyRef Name="IDHair" />
+            </Principal>
+            <Dependent Role="DESIGNWITH">
+              <PropertyRef Name="IDHair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DESIGNWITH_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="DESIGNWITH" Type="Self.DESIGNWITH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="DESIGNWITH">
+              <PropertyRef Name="IDStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXTRATSTYLE_EXTRAT">
+          <End Role="EXTRAT" Type="Self.EXTRAT" Multiplicity="1" />
+          <End Role="EXTRATSTYLE" Type="Self.EXTRATSTYLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EXTRAT">
+              <PropertyRef Name="IDExtrat" />
+            </Principal>
+            <Dependent Role="EXTRATSTYLE">
+              <PropertyRef Name="IDExtrat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXTRATSTYLE_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="EXTRATSTYLE" Type="Self.EXTRATSTYLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="EXTRATSTYLE">
+              <PropertyRef Name="IDStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HAIR_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="HAIR" Type="Self.HAIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="HAIR">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBCONSUMPTION_HAIR">
+          <End Role="HAIR" Type="Self.HAIR" Multiplicity="1" />
+          <End Role="JOBCONSUMPTION" Type="Self.JOBCONSUMPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAIR">
+              <PropertyRef Name="IDHair" />
+            </Principal>
+            <Dependent Role="JOBCONSUMPTION">
+              <PropertyRef Name="IDHair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBCONSUMPTION_JOBDONE">
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="1" />
+          <End Role="JOBCONSUMPTION" Type="Self.JOBCONSUMPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JOBDONE">
+              <PropertyRef Name="IDJobDone" />
+            </Principal>
+            <Dependent Role="JOBCONSUMPTION">
+              <PropertyRef Name="IDJobDone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBDONE_APPOINTMENT">
+          <End Role="APPOINTMENT" Type="Self.APPOINTMENT" Multiplicity="1" />
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPOINTMENT">
+              <PropertyRef Name="IDAppoint" />
+            </Principal>
+            <Dependent Role="JOBDONE">
+              <PropertyRef Name="IDAppoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBDONE_DISCOUNT">
+          <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="0..1" />
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCOUNT">
+              <PropertyRef Name="IDDiscount" />
+            </Principal>
+            <Dependent Role="JOBDONE">
+              <PropertyRef Name="IDDiscount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBEXECUTER_BRAIDER">
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="1" />
+          <End Role="JOBEXECUTER" Type="Self.JOBEXECUTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAIDER">
+              <PropertyRef Name="IDBraider" />
+            </Principal>
+            <Dependent Role="JOBEXECUTER">
+              <PropertyRef Name="IDBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBEXECUTER_JOBDONE">
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="1" />
+          <End Role="JOBEXECUTER" Type="Self.JOBEXECUTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JOBDONE">
+              <PropertyRef Name="IDJobDone" />
+            </Principal>
+            <Dependent Role="JOBEXECUTER">
+              <PropertyRef Name="IDJobDone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEEDPRODUCT_NEED">
+          <End Role="NEED" Type="Self.NEED" Multiplicity="1" />
+          <End Role="NEEDPRODUCT" Type="Self.NEEDPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NEED">
+              <PropertyRef Name="IDNeed" />
+            </Principal>
+            <Dependent Role="NEEDPRODUCT">
+              <PropertyRef Name="IDNeed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEEDPRODUCT_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="NEEDPRODUCT" Type="Self.NEEDPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="NEEDPRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="IDVendor" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="IDVendor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_ORDER">
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+          <End Role="ORDERPRODUCT" Type="Self.ORDERPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER">
+              <PropertyRef Name="IDOrder" />
+            </Principal>
+            <Dependent Role="ORDERPRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="ORDERPRODUCT" Type="Self.ORDERPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="ORDERPRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_TYPEPRODUCT">
+          <End Role="TYPEPRODUCT" Type="Self.TYPEPRODUCT" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPEPRODUCT">
+              <PropertyRef Name="IDTypeProd" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="IDTypeProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SKILLS_BRAIDER">
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="1" />
+          <End Role="SKILLS" Type="Self.SKILLS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAIDER">
+              <PropertyRef Name="IDBraider" />
+            </Principal>
+            <Dependent Role="SKILLS">
+              <PropertyRef Name="IDBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SKILLS_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="SKILLS" Type="Self.SKILLS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="SKILLS">
+              <PropertyRef Name="IDStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalProjectDBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APPOINTMENT" EntityType="Self.APPOINTMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BRAIDER" EntityType="Self.BRAIDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATALOG" EntityType="Self.CATALOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPANY" EntityType="Self.COMPANY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DESIGNWITH" EntityType="Self.DESIGNWITH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISCOUNT" EntityType="Self.DISCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EXTRAT" EntityType="Self.EXTRAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EXTRATSTYLE" EntityType="Self.EXTRATSTYLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HAIR" EntityType="Self.HAIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JOBCONSUMPTION" EntityType="Self.JOBCONSUMPTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JOBDONE" EntityType="Self.JOBDONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JOBEXECUTER" EntityType="Self.JOBEXECUTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NEED" EntityType="Self.NEED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NEEDPRODUCT" EntityType="Self.NEEDPRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDERPRODUCT" EntityType="Self.ORDERPRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SKILLS" EntityType="Self.SKILLS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STYLE" EntityType="Self.STYLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPEPRODUCT" EntityType="Self.TYPEPRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles_RoleId" Association="Self.FK_AspNetUserRoles_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers_UserId" Association="Self.FK_AspNetUserRoles_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRAIDER_AspNetUsers" Association="Self.FK_BRAIDER_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="BRAIDER" EntitySet="BRAIDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLIENT_AspNetUsers" Association="Self.FK_CLIENT_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CLIENT" EntitySet="CLIENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_BRAIDER" Association="Self.FK_COMPANY_BRAIDER">
+            <End Role="BRAIDER" EntitySet="BRAIDER" />
+            <End Role="COMPANY" EntitySet="COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPOINTMENT_CLIENT" Association="Self.FK_APPOINTMENT_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="APPOINTMENT" EntitySet="APPOINTMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPOINTMENT_STYLE" Association="Self.FK_APPOINTMENT_STYLE">
+            <End Role="STYLE" EntitySet="STYLE" />
+            <End Role="APPOINTMENT" EntitySet="APPOINTMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT" Association="Self.FK_CATALOG_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="CATALOG" EntitySet="CATALOG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_VENDOR" Association="Self.FK_CATALOG_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="CATALOG" EntitySet="CATALOG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DESIGNWITH_HAIR" Association="Self.FK_DESIGNWITH_HAIR">
+            <End Role="HAIR" EntitySet="HAIR" />
+            <End Role="DESIGNWITH" EntitySet="DESIGNWITH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DESIGNWITH_STYLE" Association="Self.FK_DESIGNWITH_STYLE">
+            <End Role="STYLE" EntitySet="STYLE" />
+            <End Role="DESIGNWITH" EntitySet="DESIGNWITH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXTRATSTYLE_EXTRAT" Association="Self.FK_EXTRATSTYLE_EXTRAT">
+            <End Role="EXTRAT" EntitySet="EXTRAT" />
+            <End Role="EXTRATSTYLE" EntitySet="EXTRATSTYLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXTRATSTYLE_STYLE" Association="Self.FK_EXTRATSTYLE_STYLE">
+            <End Role="STYLE" EntitySet="STYLE" />
+            <End Role="EXTRATSTYLE" EntitySet="EXTRATSTYLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HAIR_PRODUCT" Association="Self.FK_HAIR_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="HAIR" EntitySet="HAIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBCONSUMPTION_HAIR" Association="Self.FK_JOBCONSUMPTION_HAIR">
+            <End Role="HAIR" EntitySet="HAIR" />
+            <End Role="JOBCONSUMPTION" EntitySet="JOBCONSUMPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBCONSUMPTION_JOBDONE" Association="Self.FK_JOBCONSUMPTION_JOBDONE">
+            <End Role="JOBDONE" EntitySet="JOBDONE" />
+            <End Role="JOBCONSUMPTION" EntitySet="JOBCONSUMPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBDONE_APPOINTMENT" Association="Self.FK_JOBDONE_APPOINTMENT">
+            <End Role="APPOINTMENT" EntitySet="APPOINTMENT" />
+            <End Role="JOBDONE" EntitySet="JOBDONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBDONE_DISCOUNT" Association="Self.FK_JOBDONE_DISCOUNT">
+            <End Role="DISCOUNT" EntitySet="DISCOUNT" />
+            <End Role="JOBDONE" EntitySet="JOBDONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBEXECUTER_BRAIDER" Association="Self.FK_JOBEXECUTER_BRAIDER">
+            <End Role="BRAIDER" EntitySet="BRAIDER" />
+            <End Role="JOBEXECUTER" EntitySet="JOBEXECUTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBEXECUTER_JOBDONE" Association="Self.FK_JOBEXECUTER_JOBDONE">
+            <End Role="JOBDONE" EntitySet="JOBDONE" />
+            <End Role="JOBEXECUTER" EntitySet="JOBEXECUTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEEDPRODUCT_NEED" Association="Self.FK_NEEDPRODUCT_NEED">
+            <End Role="NEED" EntitySet="NEED" />
+            <End Role="NEEDPRODUCT" EntitySet="NEEDPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEEDPRODUCT_PRODUCT" Association="Self.FK_NEEDPRODUCT_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="NEEDPRODUCT" EntitySet="NEEDPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_VENDOR" Association="Self.FK_ORDER_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="ORDER" EntitySet="ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_ORDER" Association="Self.FK_ORDERPRODUCT_ORDER">
+            <End Role="ORDER" EntitySet="ORDER" />
+            <End Role="ORDERPRODUCT" EntitySet="ORDERPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_PRODUCT" Association="Self.FK_ORDERPRODUCT_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="ORDERPRODUCT" EntitySet="ORDERPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_TYPEPRODUCT" Association="Self.FK_PRODUCT_TYPEPRODUCT">
+            <End Role="TYPEPRODUCT" EntitySet="TYPEPRODUCT" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SKILLS_BRAIDER" Association="Self.FK_SKILLS_BRAIDER">
+            <End Role="BRAIDER" EntitySet="BRAIDER" />
+            <End Role="SKILLS" EntitySet="SKILLS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SKILLS_STYLE" Association="Self.FK_SKILLS_STYLE">
+            <End Role="STYLE" EntitySet="STYLE" />
+            <End Role="SKILLS" EntitySet="SKILLS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinalProjectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APPOINTMENT">
+          <Key>
+            <PropertyRef Name="IDAppoint" />
+          </Key>
+          <Property Name="IDAppoint" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDClientAppoint" Type="Int32" Nullable="false" />
+          <Property Name="IDStypeAppoint" Type="Byte" Nullable="false" />
+          <Property Name="DateAppoint" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddTakeOffAppoint" Type="Boolean" />
+          <Property Name="BeginnTimeAppoint" Type="Time" Precision="7" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_APPOINTMENT_CLIENT" FromRole="APPOINTMENT" ToRole="CLIENT" />
+          <NavigationProperty Name="STYLE" Relationship="Self.FK_APPOINTMENT_STYLE" FromRole="APPOINTMENT" ToRole="STYLE" />
+          <NavigationProperty Name="JOBDONEs" Relationship="Self.FK_JOBDONE_APPOINTMENT" FromRole="APPOINTMENT" ToRole="JOBDONE" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="Int16" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="BRAIDERs" Relationship="Self.FK_BRAIDER_AspNetUsers" FromRole="AspNetUsers" ToRole="BRAIDER" />
+          <NavigationProperty Name="CLIENTs" Relationship="Self.FK_CLIENT_AspNetUsers" FromRole="AspNetUsers" ToRole="CLIENT" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BRAIDER">
+          <Key>
+            <PropertyRef Name="IDBraider" />
+          </Key>
+          <Property Name="IDBraider" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FnameBraider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MnameBraider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LnameBraider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneBraider" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="CelBraider" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="StreetBraider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountyBraider" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCodeBraider" Type="Int16" />
+          <Property Name="EmailBraider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserBraider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_BRAIDER_AspNetUsers" FromRole="BRAIDER" ToRole="AspNetUsers" />
+          <NavigationProperty Name="COMPANies" Relationship="Self.FK_COMPANY_BRAIDER" FromRole="BRAIDER" ToRole="COMPANY" />
+          <NavigationProperty Name="JOBEXECUTERs" Relationship="Self.FK_JOBEXECUTER_BRAIDER" FromRole="BRAIDER" ToRole="JOBEXECUTER" />
+          <NavigationProperty Name="SKILLS" Relationship="Self.FK_SKILLS_BRAIDER" FromRole="BRAIDER" ToRole="SKILLS" />
+        </EntityType>
+        <EntityType Name="CATALOG">
+          <Key>
+            <PropertyRef Name="IDCatalog" />
+          </Key>
+          <Property Name="IDCatalog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDVendor" Type="Int32" Nullable="false" />
+          <Property Name="IDProd" Type="Int32" Nullable="false" />
+          <Property Name="UnitType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_CATALOG_PRODUCT" FromRole="CATALOG" ToRole="PRODUCT" />
+          <NavigationProperty Name="VENDOR" Relationship="Self.FK_CATALOG_VENDOR" FromRole="CATALOG" ToRole="VENDOR" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="IDClient" />
+          </Key>
+          <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FnameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MnameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LnameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneClient" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="CelClient" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="StreetClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountyClient" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZipCodeClient" Type="Int16" Nullable="false" />
+          <Property Name="EmailClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateClient" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDUserClient" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPOINTMENTs" Relationship="Self.FK_APPOINTMENT_CLIENT" FromRole="CLIENT" ToRole="APPOINTMENT" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_CLIENT_AspNetUsers" FromRole="CLIENT" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="COMPANY">
+          <Key>
+            <PropertyRef Name="IDComp" />
+          </Key>
+          <Property Name="IDComp" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleComp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneOffice" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneOwner" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="StreetComp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountyComp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ZipcodeComp" Type="Int16" />
+          <Property Name="EmailComp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteComp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartPayeBraid" Type="Double" />
+          <Property Name="IDOwnerBraider" Type="Int32" />
+          <Property Name="CostHairDeduct" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PercentBrader" Type="Byte" />
+          <Property Name="PriceTakeOff" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="BRAIDER" Relationship="Self.FK_COMPANY_BRAIDER" FromRole="COMPANY" ToRole="BRAIDER" />
+        </EntityType>
+        <EntityType Name="DESIGNWITH">
+          <Key>
+            <PropertyRef Name="IDDesignWith" />
+          </Key>
+          <Property Name="IDDesignWith" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDStyle" Type="Byte" Nullable="false" />
+          <Property Name="IDHair" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HAIR" Relationship="Self.FK_DESIGNWITH_HAIR" FromRole="DESIGNWITH" ToRole="HAIR" />
+          <NavigationProperty Name="STYLE" Relationship="Self.FK_DESIGNWITH_STYLE" FromRole="DESIGNWITH" ToRole="STYLE" />
+        </EntityType>
+        <EntityType Name="DISCOUNT">
+          <Key>
+            <PropertyRef Name="IDDiscount" />
+          </Key>
+          <Property Name="IDDiscount" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleDiscount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AmountDiscount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="JOBDONEs" Relationship="Self.FK_JOBDONE_DISCOUNT" FromRole="DISCOUNT" ToRole="JOBDONE" />
+        </EntityType>
+        <EntityType Name="EXTRAT">
+          <Key>
+            <PropertyRef Name="IDExtrat" />
+          </Key>
+          <Property Name="IDExtrat" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleExtrat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EXTRATSTYLEs" Relationship="Self.FK_EXTRATSTYLE_EXTRAT" FromRole="EXTRAT" ToRole="EXTRATSTYLE" />
+        </EntityType>
+        <EntityType Name="EXTRATSTYLE">
+          <Key>
+            <PropertyRef Name="IDExtratStyle" />
+          </Key>
+          <Property Name="IDExtratStyle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDStyle" Type="Byte" Nullable="false" />
+          <Property Name="IDExtrat" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="EXTRAT" Relationship="Self.FK_EXTRATSTYLE_EXTRAT" FromRole="EXTRATSTYLE" ToRole="EXTRAT" />
+          <NavigationProperty Name="STYLE" Relationship="Self.FK_EXTRATSTYLE_STYLE" FromRole="EXTRATSTYLE" ToRole="STYLE" />
+        </EntityType>
+        <EntityType Name="HAIR">
+          <Key>
+            <PropertyRef Name="IDHair" />
+          </Key>
+          <Property Name="IDHair" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleHair" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDProd" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DESIGNWITHs" Relationship="Self.FK_DESIGNWITH_HAIR" FromRole="HAIR" ToRole="DESIGNWITH" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_HAIR_PRODUCT" FromRole="HAIR" ToRole="PRODUCT" />
+          <NavigationProperty Name="JOBCONSUMPTIONs" Relationship="Self.FK_JOBCONSUMPTION_HAIR" FromRole="HAIR" ToRole="JOBCONSUMPTION" />
+        </EntityType>
+        <EntityType Name="JOBCONSUMPTION">
+          <Key>
+            <PropertyRef Name="IDJobConsump" />
+          </Key>
+          <Property Name="IDJobConsump" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDJobDone" Type="Int32" Nullable="false" />
+          <Property Name="IDHair" Type="Int32" Nullable="false" />
+          <Property Name="QttyPacks" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="HAIR" Relationship="Self.FK_JOBCONSUMPTION_HAIR" FromRole="JOBCONSUMPTION" ToRole="HAIR" />
+          <NavigationProperty Name="JOBDONE" Relationship="Self.FK_JOBCONSUMPTION_JOBDONE" FromRole="JOBCONSUMPTION" ToRole="JOBDONE" />
+        </EntityType>
+        <EntityType Name="JOBDONE">
+          <Key>
+            <PropertyRef Name="IDJobDone" />
+          </Key>
+          <Property Name="IDJobDone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAppoint" Type="Int32" Nullable="false" />
+          <Property Name="DateJobDone" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeEndJob" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="IDDiscount" Type="Byte" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="feedback" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="APPOINTMENT" Relationship="Self.FK_JOBDONE_APPOINTMENT" FromRole="JOBDONE" ToRole="APPOINTMENT" />
+          <NavigationProperty Name="DISCOUNT" Relationship="Self.FK_JOBDONE_DISCOUNT" FromRole="JOBDONE" ToRole="DISCOUNT" />
+          <NavigationProperty Name="JOBCONSUMPTIONs" Relationship="Self.FK_JOBCONSUMPTION_JOBDONE" FromRole="JOBDONE" ToRole="JOBCONSUMPTION" />
+          <NavigationProperty Name="JOBEXECUTERs" Relationship="Self.FK_JOBEXECUTER_JOBDONE" FromRole="JOBDONE" ToRole="JOBEXECUTER" />
+        </EntityType>
+        <EntityType Name="JOBEXECUTER">
+          <Key>
+            <PropertyRef Name="IDJobExecut" />
+          </Key>
+          <Property Name="IDJobExecut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDJobDone" Type="Int32" Nullable="false" />
+          <Property Name="IDBraider" Type="Int32" Nullable="false" />
+          <Property Name="BraidingLocat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BRAIDER" Relationship="Self.FK_JOBEXECUTER_BRAIDER" FromRole="JOBEXECUTER" ToRole="BRAIDER" />
+          <NavigationProperty Name="JOBDONE" Relationship="Self.FK_JOBEXECUTER_JOBDONE" FromRole="JOBEXECUTER" ToRole="JOBDONE" />
+        </EntityType>
+        <EntityType Name="NEED">
+          <Key>
+            <PropertyRef Name="IDNeed" />
+          </Key>
+          <Property Name="IDNeed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDClient" Type="Int32" Nullable="false" />
+          <Property Name="DateNeed" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="NEEDPRODUCTs" Relationship="Self.FK_NEEDPRODUCT_NEED" FromRole="NEED" ToRole="NEEDPRODUCT" />
+        </EntityType>
+        <EntityType Name="NEEDPRODUCT">
+          <Key>
+            <PropertyRef Name="IDNeedProd" />
+          </Key>
+          <Property Name="IDNeedProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNeed" Type="Int32" Nullable="false" />
+          <Property Name="IDProd" Type="Int32" Nullable="false" />
+          <Property Name="QttyNeed" Type="Byte" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="NEED" Relationship="Self.FK_NEEDPRODUCT_NEED" FromRole="NEEDPRODUCT" ToRole="NEED" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_NEEDPRODUCT_PRODUCT" FromRole="NEEDPRODUCT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDVendor" Type="Int32" Nullable="false" />
+          <Property Name="DateOrder" Type="DateTime" Precision="3" />
+          <Property Name="DescripOrder" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VENDOR" Relationship="Self.FK_ORDER_VENDOR" FromRole="ORDER" ToRole="VENDOR" />
+          <NavigationProperty Name="ORDERPRODUCTs" Relationship="Self.FK_ORDERPRODUCT_ORDER" FromRole="ORDER" ToRole="ORDERPRODUCT" />
+        </EntityType>
+        <EntityType Name="ORDERPRODUCT">
+          <Key>
+            <PropertyRef Name="IDOrderProd" />
+          </Key>
+          <Property Name="IDOrderProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDOrder" Type="Int32" Nullable="false" />
+          <Property Name="IDProd" Type="Int32" Nullable="false" />
+          <Property Name="QttyOrder" Type="Byte" />
+          <NavigationProperty Name="ORDER" Relationship="Self.FK_ORDERPRODUCT_ORDER" FromRole="ORDERPRODUCT" ToRole="ORDER" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_ORDERPRODUCT_PRODUCT" FromRole="ORDERPRODUCT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="IDProd" />
+          </Key>
+          <Property Name="IDProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleProd" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDTypeProd" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="CATALOGs" Relationship="Self.FK_CATALOG_PRODUCT" FromRole="PRODUCT" ToRole="CATALOG" />
+          <NavigationProperty Name="HAIR" Relationship="Self.FK_HAIR_PRODUCT" FromRole="PRODUCT" ToRole="HAIR" />
+          <NavigationProperty Name="NEEDPRODUCTs" Relationship="Self.FK_NEEDPRODUCT_PRODUCT" FromRole="PRODUCT" ToRole="NEEDPRODUCT" />
+          <NavigationProperty Name="ORDERPRODUCTs" Relationship="Self.FK_ORDERPRODUCT_PRODUCT" FromRole="PRODUCT" ToRole="ORDERPRODUCT" />
+          <NavigationProperty Name="TYPEPRODUCT" Relationship="Self.FK_PRODUCT_TYPEPRODUCT" FromRole="PRODUCT" ToRole="TYPEPRODUCT" />
+        </EntityType>
+        <EntityType Name="SKILL">
+          <Key>
+            <PropertyRef Name="IDSkill" />
+          </Key>
+          <Property Name="IDSkill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDBraider" Type="Int32" Nullable="false" />
+          <Property Name="IDStyle" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="BRAIDER" Relationship="Self.FK_SKILLS_BRAIDER" FromRole="SKILLS" ToRole="BRAIDER" />
+          <NavigationProperty Name="STYLE" Relationship="Self.FK_SKILLS_STYLE" FromRole="SKILLS" ToRole="STYLE" />
+        </EntityType>
+        <EntityType Name="STYLE">
+          <Key>
+            <PropertyRef Name="IDStyle" />
+          </Key>
+          <Property Name="IDStyle" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesigStyle" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescriptStyle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HairProvStyle" Type="Boolean" />
+          <Property Name="PriceStyle" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PriceExtrat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PictureStyle" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="APPOINTMENTs" Relationship="Self.FK_APPOINTMENT_STYLE" FromRole="STYLE" ToRole="APPOINTMENT" />
+          <NavigationProperty Name="DESIGNWITHs" Relationship="Self.FK_DESIGNWITH_STYLE" FromRole="STYLE" ToRole="DESIGNWITH" />
+          <NavigationProperty Name="EXTRATSTYLEs" Relationship="Self.FK_EXTRATSTYLE_STYLE" FromRole="STYLE" ToRole="EXTRATSTYLE" />
+          <NavigationProperty Name="SKILLS" Relationship="Self.FK_SKILLS_STYLE" FromRole="STYLE" ToRole="SKILLS" />
+        </EntityType>
+        <EntityType Name="TYPEPRODUCT">
+          <Key>
+            <PropertyRef Name="IDTypeProd" />
+          </Key>
+          <Property Name="IDTypeProd" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleTypeProd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_TYPEPRODUCT" FromRole="TYPEPRODUCT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="IDVendor" />
+          </Key>
+          <Property Name="IDVendor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleVendor" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneOffice" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneCell" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="StreetVendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountyVendor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCodeVendor" Type="Int16" />
+          <Property Name="StateVendor" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="EmailVendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebSiteVendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CATALOGs" Relationship="Self.FK_CATALOG_VENDOR" FromRole="VENDOR" ToRole="CATALOG" />
+          <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_VENDOR" FromRole="VENDOR" ToRole="ORDER" />
+        </EntityType>
+        <Association Name="FK_APPOINTMENT_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="APPOINTMENT" Type="Self.APPOINTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="APPOINTMENT">
+              <PropertyRef Name="IDClientAppoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPOINTMENT_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="APPOINTMENT" Type="Self.APPOINTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="APPOINTMENT">
+              <PropertyRef Name="IDStypeAppoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBDONE_APPOINTMENT">
+          <End Role="APPOINTMENT" Type="Self.APPOINTMENT" Multiplicity="1" />
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPOINTMENT">
+              <PropertyRef Name="IDAppoint" />
+            </Principal>
+            <Dependent Role="JOBDONE">
+              <PropertyRef Name="IDAppoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRAIDER_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BRAIDER">
+              <PropertyRef Name="IDUserBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLIENT_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CLIENT">
+              <PropertyRef Name="IDUserClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_BRAIDER">
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="0..1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAIDER">
+              <PropertyRef Name="IDBraider" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="IDOwnerBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBEXECUTER_BRAIDER">
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="1" />
+          <End Role="JOBEXECUTER" Type="Self.JOBEXECUTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAIDER">
+              <PropertyRef Name="IDBraider" />
+            </Principal>
+            <Dependent Role="JOBEXECUTER">
+              <PropertyRef Name="IDBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SKILLS_BRAIDER">
+          <End Role="BRAIDER" Type="Self.BRAIDER" Multiplicity="1" />
+          <End Role="SKILLS" Type="Self.SKILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAIDER">
+              <PropertyRef Name="IDBraider" />
+            </Principal>
+            <Dependent Role="SKILLS">
+              <PropertyRef Name="IDBraider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="CATALOG" Type="Self.CATALOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="CATALOG">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="1" />
+          <End Role="CATALOG" Type="Self.CATALOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="IDVendor" />
+            </Principal>
+            <Dependent Role="CATALOG">
+              <PropertyRef Name="IDVendor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DESIGNWITH_HAIR">
+          <End Role="HAIR" Type="Self.HAIR" Multiplicity="1" />
+          <End Role="DESIGNWITH" Type="Self.DESIGNWITH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAIR">
+              <PropertyRef Name="IDHair" />
+            </Principal>
+            <Dependent Role="DESIGNWITH">
+              <PropertyRef Name="IDHair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DESIGNWITH_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="DESIGNWITH" Type="Self.DESIGNWITH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="DESIGNWITH">
+              <PropertyRef Name="IDStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBDONE_DISCOUNT">
+          <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="0..1" />
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCOUNT">
+              <PropertyRef Name="IDDiscount" />
+            </Principal>
+            <Dependent Role="JOBDONE">
+              <PropertyRef Name="IDDiscount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXTRATSTYLE_EXTRAT">
+          <End Role="EXTRAT" Type="Self.EXTRAT" Multiplicity="1" />
+          <End Role="EXTRATSTYLE" Type="Self.EXTRATSTYLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EXTRAT">
+              <PropertyRef Name="IDExtrat" />
+            </Principal>
+            <Dependent Role="EXTRATSTYLE">
+              <PropertyRef Name="IDExtrat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXTRATSTYLE_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="EXTRATSTYLE" Type="Self.EXTRATSTYLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="EXTRATSTYLE">
+              <PropertyRef Name="IDStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HAIR_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="HAIR" Type="Self.HAIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="HAIR">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBCONSUMPTION_HAIR">
+          <End Role="HAIR" Type="Self.HAIR" Multiplicity="1" />
+          <End Role="JOBCONSUMPTION" Type="Self.JOBCONSUMPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAIR">
+              <PropertyRef Name="IDHair" />
+            </Principal>
+            <Dependent Role="JOBCONSUMPTION">
+              <PropertyRef Name="IDHair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBCONSUMPTION_JOBDONE">
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="1" />
+          <End Role="JOBCONSUMPTION" Type="Self.JOBCONSUMPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JOBDONE">
+              <PropertyRef Name="IDJobDone" />
+            </Principal>
+            <Dependent Role="JOBCONSUMPTION">
+              <PropertyRef Name="IDJobDone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JOBEXECUTER_JOBDONE">
+          <End Role="JOBDONE" Type="Self.JOBDONE" Multiplicity="1" />
+          <End Role="JOBEXECUTER" Type="Self.JOBEXECUTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JOBDONE">
+              <PropertyRef Name="IDJobDone" />
+            </Principal>
+            <Dependent Role="JOBEXECUTER">
+              <PropertyRef Name="IDJobDone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEEDPRODUCT_NEED">
+          <End Role="NEED" Type="Self.NEED" Multiplicity="1" />
+          <End Role="NEEDPRODUCT" Type="Self.NEEDPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NEED">
+              <PropertyRef Name="IDNeed" />
+            </Principal>
+            <Dependent Role="NEEDPRODUCT">
+              <PropertyRef Name="IDNeed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEEDPRODUCT_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="NEEDPRODUCT" Type="Self.NEEDPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="NEEDPRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="IDVendor" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="IDVendor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_ORDER">
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+          <End Role="ORDERPRODUCT" Type="Self.ORDERPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER">
+              <PropertyRef Name="IDOrder" />
+            </Principal>
+            <Dependent Role="ORDERPRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="ORDERPRODUCT" Type="Self.ORDERPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Principal>
+            <Dependent Role="ORDERPRODUCT">
+              <PropertyRef Name="IDProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_TYPEPRODUCT">
+          <End Role="TYPEPRODUCT" Type="Self.TYPEPRODUCT" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPEPRODUCT">
+              <PropertyRef Name="IDTypeProd" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="IDTypeProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SKILLS_STYLE">
+          <End Role="STYLE" Type="Self.STYLE" Multiplicity="1" />
+          <End Role="SKILLS" Type="Self.SKILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STYLE">
+              <PropertyRef Name="IDStyle" />
+            </Principal>
+            <Dependent Role="SKILLS">
+              <PropertyRef Name="IDStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="FinalProjectDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="APPOINTMENTs" EntityType="Self.APPOINTMENT" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BRAIDERs" EntityType="Self.BRAIDER" />
+          <EntitySet Name="CATALOGs" EntityType="Self.CATALOG" />
+          <EntitySet Name="CLIENTs" EntityType="Self.CLIENT" />
+          <EntitySet Name="COMPANies" EntityType="Self.COMPANY" />
+          <EntitySet Name="DESIGNWITHs" EntityType="Self.DESIGNWITH" />
+          <EntitySet Name="DISCOUNTs" EntityType="Self.DISCOUNT" />
+          <EntitySet Name="EXTRATs" EntityType="Self.EXTRAT" />
+          <EntitySet Name="EXTRATSTYLEs" EntityType="Self.EXTRATSTYLE" />
+          <EntitySet Name="HAIR" EntityType="Self.HAIR" />
+          <EntitySet Name="JOBCONSUMPTIONs" EntityType="Self.JOBCONSUMPTION" />
+          <EntitySet Name="JOBDONEs" EntityType="Self.JOBDONE" />
+          <EntitySet Name="JOBEXECUTERs" EntityType="Self.JOBEXECUTER" />
+          <EntitySet Name="NEEDs" EntityType="Self.NEED" />
+          <EntitySet Name="NEEDPRODUCTs" EntityType="Self.NEEDPRODUCT" />
+          <EntitySet Name="ORDERs" EntityType="Self.ORDER" />
+          <EntitySet Name="ORDERPRODUCTs" EntityType="Self.ORDERPRODUCT" />
+          <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+          <EntitySet Name="SKILLS" EntityType="Self.SKILL" />
+          <EntitySet Name="STYLEs" EntityType="Self.STYLE" />
+          <EntitySet Name="TYPEPRODUCTs" EntityType="Self.TYPEPRODUCT" />
+          <EntitySet Name="VENDORs" EntityType="Self.VENDOR" />
+          <AssociationSet Name="FK_APPOINTMENT_CLIENT" Association="Self.FK_APPOINTMENT_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENTs" />
+            <End Role="APPOINTMENT" EntitySet="APPOINTMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPOINTMENT_STYLE" Association="Self.FK_APPOINTMENT_STYLE">
+            <End Role="STYLE" EntitySet="STYLEs" />
+            <End Role="APPOINTMENT" EntitySet="APPOINTMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBDONE_APPOINTMENT" Association="Self.FK_JOBDONE_APPOINTMENT">
+            <End Role="APPOINTMENT" EntitySet="APPOINTMENTs" />
+            <End Role="JOBDONE" EntitySet="JOBDONEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRAIDER_AspNetUsers" Association="Self.FK_BRAIDER_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="BRAIDER" EntitySet="BRAIDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLIENT_AspNetUsers" Association="Self.FK_CLIENT_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CLIENT" EntitySet="CLIENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_BRAIDER" Association="Self.FK_COMPANY_BRAIDER">
+            <End Role="BRAIDER" EntitySet="BRAIDERs" />
+            <End Role="COMPANY" EntitySet="COMPANies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBEXECUTER_BRAIDER" Association="Self.FK_JOBEXECUTER_BRAIDER">
+            <End Role="BRAIDER" EntitySet="BRAIDERs" />
+            <End Role="JOBEXECUTER" EntitySet="JOBEXECUTERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SKILLS_BRAIDER" Association="Self.FK_SKILLS_BRAIDER">
+            <End Role="BRAIDER" EntitySet="BRAIDERs" />
+            <End Role="SKILLS" EntitySet="SKILLS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT" Association="Self.FK_CATALOG_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="CATALOG" EntitySet="CATALOGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_VENDOR" Association="Self.FK_CATALOG_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDORs" />
+            <End Role="CATALOG" EntitySet="CATALOGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DESIGNWITH_HAIR" Association="Self.FK_DESIGNWITH_HAIR">
+            <End Role="HAIR" EntitySet="HAIR" />
+            <End Role="DESIGNWITH" EntitySet="DESIGNWITHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DESIGNWITH_STYLE" Association="Self.FK_DESIGNWITH_STYLE">
+            <End Role="STYLE" EntitySet="STYLEs" />
+            <End Role="DESIGNWITH" EntitySet="DESIGNWITHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBDONE_DISCOUNT" Association="Self.FK_JOBDONE_DISCOUNT">
+            <End Role="DISCOUNT" EntitySet="DISCOUNTs" />
+            <End Role="JOBDONE" EntitySet="JOBDONEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXTRATSTYLE_EXTRAT" Association="Self.FK_EXTRATSTYLE_EXTRAT">
+            <End Role="EXTRAT" EntitySet="EXTRATs" />
+            <End Role="EXTRATSTYLE" EntitySet="EXTRATSTYLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXTRATSTYLE_STYLE" Association="Self.FK_EXTRATSTYLE_STYLE">
+            <End Role="STYLE" EntitySet="STYLEs" />
+            <End Role="EXTRATSTYLE" EntitySet="EXTRATSTYLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HAIR_PRODUCT" Association="Self.FK_HAIR_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="HAIR" EntitySet="HAIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBCONSUMPTION_HAIR" Association="Self.FK_JOBCONSUMPTION_HAIR">
+            <End Role="HAIR" EntitySet="HAIR" />
+            <End Role="JOBCONSUMPTION" EntitySet="JOBCONSUMPTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBCONSUMPTION_JOBDONE" Association="Self.FK_JOBCONSUMPTION_JOBDONE">
+            <End Role="JOBDONE" EntitySet="JOBDONEs" />
+            <End Role="JOBCONSUMPTION" EntitySet="JOBCONSUMPTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JOBEXECUTER_JOBDONE" Association="Self.FK_JOBEXECUTER_JOBDONE">
+            <End Role="JOBDONE" EntitySet="JOBDONEs" />
+            <End Role="JOBEXECUTER" EntitySet="JOBEXECUTERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEEDPRODUCT_NEED" Association="Self.FK_NEEDPRODUCT_NEED">
+            <End Role="NEED" EntitySet="NEEDs" />
+            <End Role="NEEDPRODUCT" EntitySet="NEEDPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEEDPRODUCT_PRODUCT" Association="Self.FK_NEEDPRODUCT_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="NEEDPRODUCT" EntitySet="NEEDPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_VENDOR" Association="Self.FK_ORDER_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDORs" />
+            <End Role="ORDER" EntitySet="ORDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_ORDER" Association="Self.FK_ORDERPRODUCT_ORDER">
+            <End Role="ORDER" EntitySet="ORDERs" />
+            <End Role="ORDERPRODUCT" EntitySet="ORDERPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_PRODUCT" Association="Self.FK_ORDERPRODUCT_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="ORDERPRODUCT" EntitySet="ORDERPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_TYPEPRODUCT" Association="Self.FK_PRODUCT_TYPEPRODUCT">
+            <End Role="TYPEPRODUCT" EntitySet="TYPEPRODUCTs" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SKILLS_STYLE" Association="Self.FK_SKILLS_STYLE">
+            <End Role="STYLE" EntitySet="STYLEs" />
+            <End Role="SKILLS" EntitySet="SKILLS" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinalProjectDBModelStoreContainer" CdmEntityContainer="FinalProjectDBEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPOINTMENTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.APPOINTMENT">
+              <MappingFragment StoreEntitySet="APPOINTMENT">
+                <ScalarProperty Name="IDAppoint" ColumnName="IDAppoint" />
+                <ScalarProperty Name="IDClientAppoint" ColumnName="IDClientAppoint" />
+                <ScalarProperty Name="IDStypeAppoint" ColumnName="IDStypeAppoint" />
+                <ScalarProperty Name="DateAppoint" ColumnName="DateAppoint" />
+                <ScalarProperty Name="AddTakeOffAppoint" ColumnName="AddTakeOffAppoint" />
+                <ScalarProperty Name="BeginnTimeAppoint" ColumnName="BeginnTimeAppoint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BRAIDERs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.BRAIDER">
+              <MappingFragment StoreEntitySet="BRAIDER">
+                <ScalarProperty Name="IDBraider" ColumnName="IDBraider" />
+                <ScalarProperty Name="FnameBraider" ColumnName="FnameBraider" />
+                <ScalarProperty Name="MnameBraider" ColumnName="MnameBraider" />
+                <ScalarProperty Name="LnameBraider" ColumnName="LnameBraider" />
+                <ScalarProperty Name="PhoneBraider" ColumnName="PhoneBraider" />
+                <ScalarProperty Name="CelBraider" ColumnName="CelBraider" />
+                <ScalarProperty Name="StreetBraider" ColumnName="StreetBraider" />
+                <ScalarProperty Name="CountyBraider" ColumnName="CountyBraider" />
+                <ScalarProperty Name="ZipCodeBraider" ColumnName="ZipCodeBraider" />
+                <ScalarProperty Name="EmailBraider" ColumnName="EmailBraider" />
+                <ScalarProperty Name="IDUserBraider" ColumnName="IDUserBraider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATALOGs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.CATALOG">
+              <MappingFragment StoreEntitySet="CATALOG">
+                <ScalarProperty Name="IDCatalog" ColumnName="IDCatalog" />
+                <ScalarProperty Name="IDVendor" ColumnName="IDVendor" />
+                <ScalarProperty Name="IDProd" ColumnName="IDProd" />
+                <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="FnameClient" ColumnName="FnameClient" />
+                <ScalarProperty Name="MnameClient" ColumnName="MnameClient" />
+                <ScalarProperty Name="LnameClient" ColumnName="LnameClient" />
+                <ScalarProperty Name="PhoneClient" ColumnName="PhoneClient" />
+                <ScalarProperty Name="CelClient" ColumnName="CelClient" />
+                <ScalarProperty Name="StreetClient" ColumnName="StreetClient" />
+                <ScalarProperty Name="CountyClient" ColumnName="CountyClient" />
+                <ScalarProperty Name="ZipCodeClient" ColumnName="ZipCodeClient" />
+                <ScalarProperty Name="EmailClient" ColumnName="EmailClient" />
+                <ScalarProperty Name="StateClient" ColumnName="StateClient" />
+                <ScalarProperty Name="IDUserClient" ColumnName="IDUserClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPANies">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.COMPANY">
+              <MappingFragment StoreEntitySet="COMPANY">
+                <ScalarProperty Name="IDComp" ColumnName="IDComp" />
+                <ScalarProperty Name="TitleComp" ColumnName="TitleComp" />
+                <ScalarProperty Name="PhoneOffice" ColumnName="PhoneOffice" />
+                <ScalarProperty Name="PhoneOwner" ColumnName="PhoneOwner" />
+                <ScalarProperty Name="StreetComp" ColumnName="StreetComp" />
+                <ScalarProperty Name="CountyComp" ColumnName="CountyComp" />
+                <ScalarProperty Name="ZipcodeComp" ColumnName="ZipcodeComp" />
+                <ScalarProperty Name="EmailComp" ColumnName="EmailComp" />
+                <ScalarProperty Name="WebsiteComp" ColumnName="WebsiteComp" />
+                <ScalarProperty Name="PartPayeBraid" ColumnName="PartPayeBraid" />
+                <ScalarProperty Name="IDOwnerBraider" ColumnName="IDOwnerBraider" />
+                <ScalarProperty Name="CostHairDeduct" ColumnName="CostHairDeduct" />
+                <ScalarProperty Name="PercentBrader" ColumnName="PercentBrader" />
+                <ScalarProperty Name="PriceTakeOff" ColumnName="PriceTakeOff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DESIGNWITHs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.DESIGNWITH">
+              <MappingFragment StoreEntitySet="DESIGNWITH">
+                <ScalarProperty Name="IDDesignWith" ColumnName="IDDesignWith" />
+                <ScalarProperty Name="IDStyle" ColumnName="IDStyle" />
+                <ScalarProperty Name="IDHair" ColumnName="IDHair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISCOUNTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.DISCOUNT">
+              <MappingFragment StoreEntitySet="DISCOUNT">
+                <ScalarProperty Name="IDDiscount" ColumnName="IDDiscount" />
+                <ScalarProperty Name="TitleDiscount" ColumnName="TitleDiscount" />
+                <ScalarProperty Name="AmountDiscount" ColumnName="AmountDiscount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXTRATs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.EXTRAT">
+              <MappingFragment StoreEntitySet="EXTRAT">
+                <ScalarProperty Name="IDExtrat" ColumnName="IDExtrat" />
+                <ScalarProperty Name="TitleExtrat" ColumnName="TitleExtrat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXTRATSTYLEs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.EXTRATSTYLE">
+              <MappingFragment StoreEntitySet="EXTRATSTYLE">
+                <ScalarProperty Name="IDExtratStyle" ColumnName="IDExtratStyle" />
+                <ScalarProperty Name="IDStyle" ColumnName="IDStyle" />
+                <ScalarProperty Name="IDExtrat" ColumnName="IDExtrat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HAIR">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.HAIR">
+              <MappingFragment StoreEntitySet="HAIR">
+                <ScalarProperty Name="IDHair" ColumnName="IDHair" />
+                <ScalarProperty Name="TitleHair" ColumnName="TitleHair" />
+                <ScalarProperty Name="IDProd" ColumnName="IDProd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JOBCONSUMPTIONs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.JOBCONSUMPTION">
+              <MappingFragment StoreEntitySet="JOBCONSUMPTION">
+                <ScalarProperty Name="IDJobConsump" ColumnName="IDJobConsump" />
+                <ScalarProperty Name="IDJobDone" ColumnName="IDJobDone" />
+                <ScalarProperty Name="IDHair" ColumnName="IDHair" />
+                <ScalarProperty Name="QttyPacks" ColumnName="QttyPacks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JOBDONEs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.JOBDONE">
+              <MappingFragment StoreEntitySet="JOBDONE">
+                <ScalarProperty Name="IDJobDone" ColumnName="IDJobDone" />
+                <ScalarProperty Name="IDAppoint" ColumnName="IDAppoint" />
+                <ScalarProperty Name="DateJobDone" ColumnName="DateJobDone" />
+                <ScalarProperty Name="TimeEndJob" ColumnName="TimeEndJob" />
+                <ScalarProperty Name="IDDiscount" ColumnName="IDDiscount" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="feedback" ColumnName="feedback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JOBEXECUTERs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.JOBEXECUTER">
+              <MappingFragment StoreEntitySet="JOBEXECUTER">
+                <ScalarProperty Name="IDJobExecut" ColumnName="IDJobExecut" />
+                <ScalarProperty Name="IDJobDone" ColumnName="IDJobDone" />
+                <ScalarProperty Name="IDBraider" ColumnName="IDBraider" />
+                <ScalarProperty Name="BraidingLocat" ColumnName="BraidingLocat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NEEDs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.NEED">
+              <MappingFragment StoreEntitySet="NEED">
+                <ScalarProperty Name="IDNeed" ColumnName="IDNeed" />
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="DateNeed" ColumnName="DateNeed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NEEDPRODUCTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.NEEDPRODUCT">
+              <MappingFragment StoreEntitySet="NEEDPRODUCT">
+                <ScalarProperty Name="IDNeedProd" ColumnName="IDNeedProd" />
+                <ScalarProperty Name="IDNeed" ColumnName="IDNeed" />
+                <ScalarProperty Name="IDProd" ColumnName="IDProd" />
+                <ScalarProperty Name="QttyNeed" ColumnName="QttyNeed" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDER">
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="IDVendor" ColumnName="IDVendor" />
+                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+                <ScalarProperty Name="DescripOrder" ColumnName="DescripOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERPRODUCTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.ORDERPRODUCT">
+              <MappingFragment StoreEntitySet="ORDERPRODUCT">
+                <ScalarProperty Name="IDOrderProd" ColumnName="IDOrderProd" />
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="IDProd" ColumnName="IDProd" />
+                <ScalarProperty Name="QttyOrder" ColumnName="QttyOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="IDProd" ColumnName="IDProd" />
+                <ScalarProperty Name="TitleProd" ColumnName="TitleProd" />
+                <ScalarProperty Name="IDTypeProd" ColumnName="IDTypeProd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SKILLS">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.SKILL">
+              <MappingFragment StoreEntitySet="SKILLS">
+                <ScalarProperty Name="IDSkill" ColumnName="IDSkill" />
+                <ScalarProperty Name="IDBraider" ColumnName="IDBraider" />
+                <ScalarProperty Name="IDStyle" ColumnName="IDStyle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STYLEs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.STYLE">
+              <MappingFragment StoreEntitySet="STYLE">
+                <ScalarProperty Name="IDStyle" ColumnName="IDStyle" />
+                <ScalarProperty Name="DesigStyle" ColumnName="DesigStyle" />
+                <ScalarProperty Name="DescriptStyle" ColumnName="DescriptStyle" />
+                <ScalarProperty Name="HairProvStyle" ColumnName="HairProvStyle" />
+                <ScalarProperty Name="PriceStyle" ColumnName="PriceStyle" />
+                <ScalarProperty Name="PriceExtrat" ColumnName="PriceExtrat" />
+                <ScalarProperty Name="PictureStyle" ColumnName="PictureStyle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPEPRODUCTs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.TYPEPRODUCT">
+              <MappingFragment StoreEntitySet="TYPEPRODUCT">
+                <ScalarProperty Name="IDTypeProd" ColumnName="IDTypeProd" />
+                <ScalarProperty Name="TitleTypeProd" ColumnName="TitleTypeProd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDORs">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.VENDOR">
+              <MappingFragment StoreEntitySet="VENDOR">
+                <ScalarProperty Name="IDVendor" ColumnName="IDVendor" />
+                <ScalarProperty Name="TitleVendor" ColumnName="TitleVendor" />
+                <ScalarProperty Name="PhoneOffice" ColumnName="PhoneOffice" />
+                <ScalarProperty Name="PhoneCell" ColumnName="PhoneCell" />
+                <ScalarProperty Name="StreetVendor" ColumnName="StreetVendor" />
+                <ScalarProperty Name="CountyVendor" ColumnName="CountyVendor" />
+                <ScalarProperty Name="ZipCodeVendor" ColumnName="ZipCodeVendor" />
+                <ScalarProperty Name="StateVendor" ColumnName="StateVendor" />
+                <ScalarProperty Name="EmailVendor" ColumnName="EmailVendor" />
+                <ScalarProperty Name="WebSiteVendor" ColumnName="WebSiteVendor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="FinalProjectDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
