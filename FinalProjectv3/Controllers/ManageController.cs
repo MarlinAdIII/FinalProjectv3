@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FinalProjectv3.Models;
+using _540FinalProject.Models;
 
-namespace FinalProjectv3.Controllers
+namespace _540FinalProject.Controllers
 {
     [Authorize]
     public class ManageController : Controller

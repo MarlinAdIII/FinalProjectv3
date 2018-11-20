@@ -1,22 +1,22 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FinalProjectv3.Models;
+using _540FinalProject.Models;
 
-namespace FinalProjectv3.Controllers
+namespace _540FinalProject.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        //1 is a User account
+        //2 is a Braider account
+  
 
         public AccountController()
         {
@@ -151,19 +151,24 @@ namespace FinalProjectv3.Controllers
         {
             if (ModelState.IsValid)
             {
+                FinalProjectDBEntities db = new FinalProjectDBEntities();
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    var query = db.AspNetUsers.Where(x => x.UserName == model.Email).First();
+                    //int type = query.Type;
+                    return RedirectToAction("Create", "CLIENTS");
+
+                    
                 }
                 AddErrors(result);
             }

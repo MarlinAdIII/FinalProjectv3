@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FinalProjectv3.Models;
+using _540FinalProject.Models;
 
-namespace FinalProjectv3.Controllers
+namespace _540FinalProject.Controllers
 {
     public class COMPANiesController : Controller
     {
@@ -17,8 +17,7 @@ namespace FinalProjectv3.Controllers
         // GET: COMPANies
         public ActionResult Index()
         {
-            var cOMPANies = db.COMPANies.Include(c => c.BRAIDER);
-            return View(cOMPANies.ToList());
+            return View(db.COMPANies.ToList());
         }
 
         // GET: COMPANies/Details/5
@@ -39,7 +38,6 @@ namespace FinalProjectv3.Controllers
         // GET: COMPANies/Create
         public ActionResult Create()
         {
-            ViewBag.IDOwnerBraider = new SelectList(db.BRAIDERs, "IDBraider", "FnameBraider");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace FinalProjectv3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IDOwnerBraider = new SelectList(db.BRAIDERs, "IDBraider", "FnameBraider", cOMPANY.IDOwnerBraider);
             return View(cOMPANY);
         }
 
@@ -73,7 +70,6 @@ namespace FinalProjectv3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IDOwnerBraider = new SelectList(db.BRAIDERs, "IDBraider", "FnameBraider", cOMPANY.IDOwnerBraider);
             return View(cOMPANY);
         }
 
@@ -90,12 +86,11 @@ namespace FinalProjectv3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDOwnerBraider = new SelectList(db.BRAIDERs, "IDBraider", "FnameBraider", cOMPANY.IDOwnerBraider);
             return View(cOMPANY);
         }
 
         // GET: COMPANies/Delete/5
-        public ActionResult Delete(byte? id)
+        /*public ActionResult Delete(byte? id)
         {
             if (id == null)
             {
@@ -118,7 +113,35 @@ namespace FinalProjectv3.Controllers
             db.COMPANies.Remove(cOMPANY);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }*/
+        
+        //the methods below need views
+        public ActionResult Discount()
+        {
+            return View();
         }
+
+        public ActionResult CreateBraider(int id)
+        {
+            //the create view for the braider needs to be linked here
+            return View();
+        }
+
+        public ActionResult AddDeleteProducts()
+        {
+            return View();
+        }
+
+        public ActionResult PayBraider()
+        {
+            return View();
+        }
+
+        public ActionResult ViewAppointments()
+        {
+            return View();
+        }
+
 
         protected override void Dispose(bool disposing)
         {

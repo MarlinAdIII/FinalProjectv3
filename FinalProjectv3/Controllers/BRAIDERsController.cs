@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FinalProjectv3.Models;
+using _540FinalProject.Models;
 
-namespace FinalProjectv3.Controllers
+namespace _540FinalProject.Controllers
 {
     public class BRAIDERsController : Controller
     {
@@ -17,8 +17,7 @@ namespace FinalProjectv3.Controllers
         // GET: BRAIDERs
         public ActionResult Index()
         {
-            var bRAIDERs = db.BRAIDERs.Include(b => b.AspNetUser);
-            return View(bRAIDERs.ToList());
+            return View(db.BRAIDERs.ToList());
         }
 
         // GET: BRAIDERs/Details/5
@@ -39,7 +38,6 @@ namespace FinalProjectv3.Controllers
         // GET: BRAIDERs/Create
         public ActionResult Create()
         {
-            ViewBag.IDUserBraider = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace FinalProjectv3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IDUserBraider = new SelectList(db.AspNetUsers, "Id", "Email", bRAIDER.IDUserBraider);
             return View(bRAIDER);
         }
 
@@ -73,7 +70,6 @@ namespace FinalProjectv3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IDUserBraider = new SelectList(db.AspNetUsers, "Id", "Email", bRAIDER.IDUserBraider);
             return View(bRAIDER);
         }
 
@@ -90,7 +86,6 @@ namespace FinalProjectv3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDUserBraider = new SelectList(db.AspNetUsers, "Id", "Email", bRAIDER.IDUserBraider);
             return View(bRAIDER);
         }
 
@@ -118,6 +113,24 @@ namespace FinalProjectv3.Controllers
             db.BRAIDERs.Remove(bRAIDER);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ViewPaycheck(int id)
+        {
+            //a view needs to be created to be returned
+            return View();
+        }
+        
+        public ActionResult SelectStyles(int id)
+        {
+            //a view needs to be created to be returned
+            return View();
+        }
+
+        public ActionResult ViewAppointments(int id)
+        {
+            //a view needs to be created to be returned
+            return View();
         }
 
         protected override void Dispose(bool disposing)

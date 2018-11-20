@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FinalProjectv3.Models;
+using _540FinalProject.Models;
 
-namespace FinalProjectv3.Controllers
+namespace _540FinalProject.Controllers
 {
     public class APPOINTMENTsController : Controller
     {

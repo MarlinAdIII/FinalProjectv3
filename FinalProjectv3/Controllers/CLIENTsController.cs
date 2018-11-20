@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FinalProjectv3.Models;
+using _540FinalProject.Models;
 
-namespace FinalProjectv3.Controllers
+namespace _540FinalProject.Controllers
 {
     public class CLIENTsController : Controller
     {
@@ -17,8 +17,7 @@ namespace FinalProjectv3.Controllers
         // GET: CLIENTs
         public ActionResult Index()
         {
-            var cLIENTs = db.CLIENTs.Include(c => c.AspNetUser);
-            return View(cLIENTs.ToList());
+            return View(db.CLIENTs.ToList());
         }
 
         // GET: CLIENTs/Details/5
@@ -39,7 +38,6 @@ namespace FinalProjectv3.Controllers
         // GET: CLIENTs/Create
         public ActionResult Create()
         {
-            ViewBag.IDUserClient = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -48,16 +46,40 @@ namespace FinalProjectv3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDClient,FnameClient,MnameClient,LnameClient,PhoneClient,CelClient,StreetClient,CountyClient,ZipCodeClient,EmailClient,StateClient,IDUserClient")] CLIENT cLIENT)
+        public ActionResult Create([Bind(Include = "IDClient,FnameClient,MnameClient,LnameClient,PhoneClient,CelClient,StreetClient,CountyClient,ZipCodeClient,EmailClient,IDUserClient,StateClient")] CLIENT cLIENT)
         {
+            //There needs to be a way to get the UserID from the user table for IDUserClient attribute
+            //this doesn't have a value for it so you get an error
             if (ModelState.IsValid)
             {
+                String email = User.Identity.Name;
+                cLIENT.EmailClient = email;
+                var query = db.AspNetUsers.Where(x => x.UserName == email).First();
+                String uID = query.Id;
+                cLIENT.IDUserClient = uID;
                 db.CLIENTs.Add(cLIENT);
-                db.SaveChanges();
+                /*try
+                {
+                    // Your code...
+                    // Could also be before try if you know the exception occurs in SaveChanges
+                    */
+                    db.SaveChanges();
+                /*}
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Diagnostics.Trace.TraceInformation("Property: {0} Error: {1}",
+                                                    validationError.PropertyName,
+                                                    validationError.ErrorMessage);
+                        }
+                    }
+                }*/
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IDUserClient = new SelectList(db.AspNetUsers, "Id", "Email", cLIENT.IDUserClient);
             return View(cLIENT);
         }
 
@@ -73,7 +95,6 @@ namespace FinalProjectv3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IDUserClient = new SelectList(db.AspNetUsers, "Id", "Email", cLIENT.IDUserClient);
             return View(cLIENT);
         }
 
@@ -82,7 +103,7 @@ namespace FinalProjectv3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDClient,FnameClient,MnameClient,LnameClient,PhoneClient,CelClient,StreetClient,CountyClient,ZipCodeClient,EmailClient,StateClient,IDUserClient")] CLIENT cLIENT)
+        public ActionResult Edit([Bind(Include = "IDClient,FnameClient,MnameClient,LnameClient,PhoneClient,CelClient,StreetClient,CountyClient,ZipCodeClient,EmailClient,IDUserClient,StateClient")] CLIENT cLIENT)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +111,6 @@ namespace FinalProjectv3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDUserClient = new SelectList(db.AspNetUsers, "Id", "Email", cLIENT.IDUserClient);
             return View(cLIENT);
         }
 
@@ -119,6 +139,18 @@ namespace FinalProjectv3.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //the methods below need views
+        public ActionResult ViewPastOrder(int id)
+        {
+            return View();
+        }
+
+        public ActionResult ScheduleAppointment(int id)
+        {
+            return View();
+        }
+
 
         protected override void Dispose(bool disposing)
         {
