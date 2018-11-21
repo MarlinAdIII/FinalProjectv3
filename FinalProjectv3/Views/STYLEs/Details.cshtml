@@ -1,0 +1,69 @@
+﻿@model FinalProjectv3.Models.STYLE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>STYLE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesigStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesigStyle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptStyle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairProvStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairProvStyle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceStyle)
+        </dd>
+
+        <!--
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceExtrat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceExtrat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PictureStyle)
+        </dd>
+        -->
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDStyle }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

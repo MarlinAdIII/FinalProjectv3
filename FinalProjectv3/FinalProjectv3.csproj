@@ -203,6 +203,7 @@
     <Compile Include="Controllers\COMPANiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\STYLEsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -404,6 +405,14 @@
     <Content Include="Views\COMPANies\Details.cshtml" />
     <Content Include="Views\COMPANies\Edit.cshtml" />
     <Content Include="Views\COMPANies\Index.cshtml" />
+    <Content Include="Views\STYLEs\Create.cshtml" />
+    <Content Include="Views\STYLEs\Delete.cshtml" />
+    <Content Include="Views\STYLEs\Details.cshtml" />
+    <Content Include="Views\STYLEs\Edit.cshtml" />
+    <Content Include="Views\STYLEs\Index.cshtml" />
+    <Content Include="Views\STYLEs\HairStyle.cshtml" />
+    <Content Include="Views\STYLEs\Pricing.cshtml" />
+    <Content Include="Views\APPOINTMENTs\CreateClientAppoint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
