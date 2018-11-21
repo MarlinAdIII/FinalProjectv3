@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using _540FinalProject.Models;
+using FinalProjectv3.Models;
 
-namespace _540FinalProject.Controllers
+namespace FinalProjectv3.Controllers
 {
     public class CLIENTsController : Controller
     {
