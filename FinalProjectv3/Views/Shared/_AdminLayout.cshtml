@@ -1,17 +1,13 @@
-﻿@{
-    Layout = "_Layout.cshtml";
-}
+﻿<!DOCTYPE html>
 
-<div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Add/Delete Braids\n and Products", "IDK", "IDK")</li>
-        <li>@Html.ActionLink("Create Braider Account", "Create", "BRAIDERs")</li>
-        <li>@Html.ActionLink("Discount", "Contact", "Home")</li>
-        <li>@Html.ActionLink("Pay Braider", "PayBraider", "COMPANies")</li>
-        <li>@Html.ActionLink("View Appointments", "Index", "APPOINTMENTs")</li>
-    </ul>
-</div>
-
-<div class=" content">
-    @RenderBody()
-</div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
