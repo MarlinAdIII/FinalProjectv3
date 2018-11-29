@@ -1,15 +1,25 @@
-﻿@model FinalProjectv3.Models.APPOINTMENT
+﻿
+@{
+    ViewBag.Title = "CreateClientAppoint";
+}
+
+<h2>Set Up appointment</h2>
+
+
+
+@model FinalProjectv3.Models.APPOINTMENT
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CreateClientAppoint";
 }
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>APPOINTMENT</h4>
         <hr />
@@ -48,6 +58,7 @@
             </div>
         </div>
 
+        <!--
         <div class="form-group">
             @Html.LabelFor(model => model.BeginnTimeAppoint, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -55,6 +66,7 @@
                 @Html.ValidationMessageFor(model => model.BeginnTimeAppoint, "", new { @class = "text-danger" })
             </div>
         </div>
+        -->
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -65,5 +77,9 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to pricing", "Pricing", "Styles")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

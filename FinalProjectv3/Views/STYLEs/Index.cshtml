@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FinalProjectv3.Models.STYLE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesigStyle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptStyle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HairProvStyle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceStyle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceExtrat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureStyle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesigStyle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescriptStyle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HairProvStyle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceStyle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceExtrat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureStyle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDStyle }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDStyle }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDStyle })
+        </td>
+    </tr>
+}
+
+</table>

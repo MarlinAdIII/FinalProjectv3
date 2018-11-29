@@ -63,6 +63,34 @@ namespace FinalProjectv3.Controllers
             return View(aPPOINTMENT);
         }
 
+
+        //*******************************************Client Appointment******************************************
+        // GET: APPOINTMENTs/Create
+        public ActionResult CreateClientAppoint()
+        {
+            ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "IDClient", "FnameClient");
+            ViewBag.IDStypeAppoint = new SelectList(db.STYLEs, "IDStyle", "DesigStyle");
+            return View();
+        }
+
+        // POST: APPOINTMENTs/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateClientAppoint([Bind(Include = "IDAppoint,IDClientAppoint,IDStypeAppoint,DateAppoint,AddTakeOffAppoint,BeginnTimeAppoint")] APPOINTMENT aPPOINTMENT)
+        {
+            if (ModelState.IsValid)
+            {
+                db.APPOINTMENTs.Add(aPPOINTMENT);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "IDClient", "FnameClient", aPPOINTMENT.IDClientAppoint);
+            ViewBag.IDStypeAppoint = new SelectList(db.STYLEs, "IDStyle", "DesigStyle", aPPOINTMENT.IDStypeAppoint);
+            return View(aPPOINTMENT);
+        }
         // GET: APPOINTMENTs/Edit/5
         public ActionResult Edit(int? id)
         {
