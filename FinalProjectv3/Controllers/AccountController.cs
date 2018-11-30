@@ -137,7 +137,7 @@ namespace FinalProjectv3.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult RegisterClient()
         {
             return View();
         }
@@ -147,7 +147,7 @@ namespace FinalProjectv3.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> RegisterClient(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -165,7 +165,8 @@ namespace FinalProjectv3.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     var query = db.AspNetUsers.Where(x => x.UserName == model.Email).First();
-                    //int type = query.Type;
+                    query.Type = 1;
+    
                     return RedirectToAction("Create", "CLIENTS");
 
                     
@@ -176,6 +177,51 @@ namespace FinalProjectv3.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        //
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult RegisterBraider()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterBraider(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                FinalProjectDBEntities db = new FinalProjectDBEntities();
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    var query = db.AspNetUsers.Where(x => x.UserName == model.Email).First();
+                    query.Type = 2;
+                    db.Database.ExecuteSqlCommand("UPDATE dbo.AspNetUsers SET Type = 2 WHERE Email = @p0", model.Email);
+                    return RedirectToAction("Create", "BRAIDERS");
+
+
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
 
         //
         // GET: /Account/ConfirmEmail

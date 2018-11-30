@@ -54,30 +54,16 @@ namespace FinalProjectv3.Controllers
             {
                 String email = User.Identity.Name;
                 cLIENT.EmailClient = email;
-                var query = db.AspNetUsers.Where(x => x.UserName == email).First();
-                String uID = query.Id;
+                var query1 = db.AspNetUsers.Where(x => x.UserName == email).First();
+                String uID = query1.Id;
                 cLIENT.IDUserClient = uID;
                 db.CLIENTs.Add(cLIENT);
-                /*try
-                {
-                    // Your code...
-                    // Could also be before try if you know the exception occurs in SaveChanges
-                    */
-                    db.SaveChanges();
-                /*}
-                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-                {
-                    foreach (var validationErrors in dbEx.EntityValidationErrors)
-                    {
-                        foreach (var validationError in validationErrors.ValidationErrors)
-                        {
-                            System.Diagnostics.Trace.TraceInformation("Property: {0} Error: {1}",
-                                                    validationError.PropertyName,
-                                                    validationError.ErrorMessage);
-                        }
-                    }
-                }*/
-                return RedirectToAction("Index");
+                db.SaveChanges();
+
+                var query2 = db.CLIENTs.Where(x => x.IDUserClient == uID).First();
+                int clientID = query2.IDClient;
+
+                return RedirectToAction("Details", "CLIENTs", new {id = clientID});
             }
 
             return View(cLIENT);

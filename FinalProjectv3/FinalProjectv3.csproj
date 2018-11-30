@@ -372,7 +372,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterClient.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -413,6 +413,12 @@
     <Content Include="Views\STYLEs\HairStyle.cshtml" />
     <Content Include="Views\STYLEs\Pricing.cshtml" />
     <Content Include="Views\APPOINTMENTs\CreateClientAppoint.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_BraiderLayout.cshtml" />
+    <Content Include="Views\Shared\_ClientLayout.cshtml" />
+    <Content Include="Views\Account\RegisterBraider.cshtml" />
+    <Content Include="Views\STYLEs\SelectStyles.cshtml" />
+    <Content Include="Views\Shared\_CreateLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

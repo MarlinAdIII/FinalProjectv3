@@ -21,13 +21,14 @@ namespace FinalProjectv3.Controllers
         }
 
         // GET: COMPANies/Details/5
-        public ActionResult Details(byte? id)
+        public ActionResult Details(int? id)
         {
+            byte ID = (byte)(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            COMPANY cOMPANY = db.COMPANies.Find(id);
+            COMPANY cOMPANY = db.COMPANies.Find(ID);
             if (cOMPANY == null)
             {
                 return HttpNotFound();
@@ -38,6 +39,7 @@ namespace FinalProjectv3.Controllers
         // GET: COMPANies/Create
         public ActionResult Create()
         {
+            ViewBag.IDOwnerBraider = new SelectList(db.BRAIDERs, "IDBraider", "EmailBraider");
             return View();
         }
 
@@ -70,6 +72,7 @@ namespace FinalProjectv3.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IDOwnerBraider = new SelectList(db.BRAIDERs, "IDBraider", "EmailBraider");
             return View(cOMPANY);
         }
 

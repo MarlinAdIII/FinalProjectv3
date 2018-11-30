@@ -50,9 +50,18 @@ namespace FinalProjectv3.Controllers
         {
             if (ModelState.IsValid)
             {
+                String email = User.Identity.Name;
+                bRAIDER.EmailBraider = email;
+                var query = db.AspNetUsers.Where(x => x.UserName == email).First();
+                String uID = query.Id;
+                bRAIDER.IDUserBraider = uID;
                 db.BRAIDERs.Add(bRAIDER);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                var query2 = db.BRAIDERs.Where(x => x.IDUserBraider == uID).First();
+                int clientID = query2.IDBraider;
+
+                return RedirectToAction("Details", "BRAIDERs", new { id = clientID });
+
             }
 
             return View(bRAIDER);

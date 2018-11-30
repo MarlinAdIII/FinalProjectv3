@@ -1,22 +1,49 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+@using FinalProjectv3.Models
+@{
+    if (Request.IsAuthenticated)
     {
-    @Html.AntiForgeryToken()
+        FinalProjectDBEntities db = new FinalProjectDBEntities();
+        String email = User.Identity.Name;
+        string controller = "";
+        var currentUser = db.AspNetUsers.Where(x => x.Email == email).First();
+        int id = -1;
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        switch (currentUser.Type)
+        {                     
+            case 1:
+                controller = "CLIENTs";
+                var clientQuery = db.CLIENTs.Where(x => x.EmailClient == email).First();
+                id = clientQuery.IDClient;
+                break;
+            case 2:
+                controller = "BRAIDERs";
+                var braiderQuery = db.BRAIDERs.Where(x => x.EmailBraider == email).First();
+                id = braiderQuery.IDBraider;
+                break;
+            case 3:
+                controller = "COMPANies";
+                id = 1;//There is only one company entity, another cannot be created
+                break;
+        }
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Welcome " + User.Identity.GetUserName() + "!", "Details", controller, new { id = id }, htmlAttributes: null)
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        }
     }
-}
-else
-{
+    else
+    {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Register", "RegisterClient", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
+    }
 }
