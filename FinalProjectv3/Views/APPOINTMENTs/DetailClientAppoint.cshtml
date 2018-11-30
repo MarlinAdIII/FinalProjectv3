@@ -1,0 +1,75 @@
+﻿
+
+@model FinalProjectv3.Models.APPOINTMENT
+
+@{
+    ViewBag.Title = "DetailClientAppoint";
+    IEnumerable<FinalProjectv3.Models.APPOINTMENT> usersAppointments = ViewData["User Appointments"] as IEnumerable<FinalProjectv3.Models.APPOINTMENT>;
+}
+
+<h2>Details</h2>
+<!--
+<div>
+    <h4>APPOINTMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddTakeOffAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginnTimeAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginnTimeAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLIENT.FnameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLIENT.FnameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STYLE.DesigStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STYLE.DesigStyle)
+        </dd>
+
+    </dl>
+</div>
+    -->
+    <table class = "table">
+        @foreach(var appn in usersAppointments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => appn.IDAppoint)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => appn.IDClientAppoint)
+                </td>
+            </tr>
+        }
+    </table>"
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDAppoint }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
