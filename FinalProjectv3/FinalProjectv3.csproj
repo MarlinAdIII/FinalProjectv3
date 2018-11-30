@@ -201,9 +201,12 @@
     <Compile Include="Controllers\BRAIDERsController.cs" />
     <Compile Include="Controllers\CLIENTsController.cs" />
     <Compile Include="Controllers\COMPANiesController.cs" />
+    <Compile Include="Controllers\HAIRController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PRODUCTsController.cs" />
     <Compile Include="Controllers\STYLEsController.cs" />
+    <Compile Include="Controllers\TYPEPRODUCTsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -351,7 +354,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -413,6 +418,22 @@
     <Content Include="Views\STYLEs\HairStyle.cshtml" />
     <Content Include="Views\STYLEs\Pricing.cshtml" />
     <Content Include="Views\APPOINTMENTs\CreateClientAppoint.cshtml" />
+    <Content Include="Views\HAIR\Create.cshtml" />
+    <Content Include="Views\HAIR\Delete.cshtml" />
+    <Content Include="Views\HAIR\Details.cshtml" />
+    <Content Include="Views\HAIR\Edit.cshtml" />
+    <Content Include="Views\HAIR\Index.cshtml" />
+    <Content Include="Views\PRODUCTs\Create.cshtml" />
+    <Content Include="Views\PRODUCTs\Delete.cshtml" />
+    <Content Include="Views\PRODUCTs\Details.cshtml" />
+    <Content Include="Views\PRODUCTs\Edit.cshtml" />
+    <Content Include="Views\PRODUCTs\Index.cshtml" />
+    <Content Include="Views\TYPEPRODUCTs\Create.cshtml" />
+    <Content Include="Views\TYPEPRODUCTs\Delete.cshtml" />
+    <Content Include="Views\TYPEPRODUCTs\Details.cshtml" />
+    <Content Include="Views\TYPEPRODUCTs\Edit.cshtml" />
+    <Content Include="Views\TYPEPRODUCTs\Index.cshtml" />
+    <Content Include="Views\APPOINTMENTs\DetailClientAppoint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

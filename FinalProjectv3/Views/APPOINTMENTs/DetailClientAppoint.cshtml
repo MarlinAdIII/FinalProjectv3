@@ -1,0 +1,46 @@
+﻿
+
+
+@model FinalProjectv3.Models.APPOINTMENT
+
+
+@{
+    ViewBag.Title = "DetailClientAppoint";
+    IEnumerable<FinalProjectv3.Models.APPOINTMENT> usersAppointments = ViewBag["UserAppointments"] as IEnumerable<FinalProjectv3.Models.APPOINTMENT>;
+}
+
+<h2>Details</h2>
+
+<table class="table">
+    @foreach (var appn in usersAppointments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.DateAppoint)
+            </td>
+
+            <td>
+                @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => appn.IDAppoint)
+            </td>
+
+            <td>
+                @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
+            </td>
+            <td>
+                @Html.DisplayFor(model => appn.IDClientAppoint)
+            </td>
+
+            <td>
+                @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
+            </td>
+        </tr>
+    }
+</table>"
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDAppoint }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

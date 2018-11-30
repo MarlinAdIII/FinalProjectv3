@@ -11,7 +11,8 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CLIENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,18 +22,39 @@ namespace FinalProjectv3.Models
         }
     
         public int IDClient { get; set; }
+        [Display(Name = "First Name")]
         public string FnameClient { get; set; }
+
+        [Display(Name = "Middle Name")]
         public string MnameClient { get; set; }
+
+        [Display(Name = "Last Name")]
         public string LnameClient { get; set; }
+
+        [Display(Name = "Office Phone")]
         public string PhoneClient { get; set; }
+
+        [Display(Name = "Cel Phone")]
         public string CelClient { get; set; }
+
+        [Display(Name = "Street")]
         public string StreetClient { get; set; }
+
+        [Display(Name = "County")]
         public string CountyClient { get; set; }
+
+        [Display(Name = "Zip Code")]
         public short ZipCodeClient { get; set; }
+
+        [Display(Name = "Email")]
         public string EmailClient { get; set; }
+
+        [Display(Name = "State")]
         public string StateClient { get; set; }
         public string IDUserClient { get; set; }
-    
+
+        public string Fullname { get { return string.Concat(FnameClient + "" + MnameClient + "" + LnameClient); } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APPOINTMENT> APPOINTMENTs { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
