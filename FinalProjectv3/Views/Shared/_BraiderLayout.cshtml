@@ -1,13 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = "_Layout.cshtml";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
-    </div>
-</body>
-</html>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Select Styles", "SelectStyles", "STYLEs")</li>
+        <li>@Html.ActionLink("View Appointments", "Index", "Appointments")</li>
+        <li>@Html.ActionLink("View Paycheck", "ViewPaycheck", "Braider")</li>
+    </ul>
+</div>
+<div class=" content">
+    @RenderBody()
+</div>
