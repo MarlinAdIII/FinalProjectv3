@@ -33,6 +33,7 @@ namespace FinalProjectv3.Controllers
             return View(db.STYLEs.ToList());
         }
 
+
         // GET: STYLEs/Details/5
         public ActionResult Details(byte? id)
         {

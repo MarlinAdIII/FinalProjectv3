@@ -11,7 +11,8 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class STYLE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,11 +25,22 @@ namespace FinalProjectv3.Models
         }
     
         public byte IDStyle { get; set; }
+        [Display(Name = "Title Style")]
         public string DesigStyle { get; set; }
+
+        [Display(Name = "Description")]
         public string DescriptStyle { get; set; }
+
+        [Display(Name = "Hair Provided ?")]
         public Nullable<bool> HairProvStyle { get; set; }
+
+        [Display(Name = "Initial Cost")]
         public Nullable<decimal> PriceStyle { get; set; }
+
+        [Display(Name = "Extrat")]
         public Nullable<decimal> PriceExtrat { get; set; }
+
+        [Display(Name = "Picture")]
         public string PictureStyle { get; set; }
 
         //This was added so the checkboxes work

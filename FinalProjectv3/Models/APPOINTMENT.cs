@@ -11,7 +11,8 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class APPOINTMENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,15 +20,27 @@ namespace FinalProjectv3.Models
         {
             this.JOBDONEs = new HashSet<JOBDONE>();
         }
-    
+
         public int IDAppoint { get; set; }
+
+        [Display(Name = "Client")]
         public int IDClientAppoint { get; set; }
+
+        [Display(Name = "Style")]
         public byte IDStypeAppoint { get; set; }
+
+        [Display(Name = "Date")]
         public System.DateTime DateAppoint { get; set; }
+
+        [Display(Name = "Add Takeoff?")]
         public Nullable<bool> AddTakeOffAppoint { get; set; }
+
         public Nullable<System.TimeSpan> BeginnTimeAppoint { get; set; }
-    
+
+        [Display(Name = "Client")]
         public virtual CLIENT CLIENT { get; set; }
+
+        [Display(Name = "Style")]
         public virtual STYLE STYLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JOBDONE> JOBDONEs { get; set; }
