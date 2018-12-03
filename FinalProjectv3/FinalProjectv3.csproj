@@ -432,6 +432,7 @@
     <Content Include="Views\JOBDONEs\Index.cshtml" />
     <Content Include="Views\APPOINTMENTs\IncompleteAppointments.cshtml" />
     <Content Include="Views\APPOINTMENTs\StartJob.cshtml" />
+    <Content Include="Views\STYLEs\SelectStyles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
