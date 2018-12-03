@@ -11,7 +11,8 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class JOBDONE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,11 +23,17 @@ namespace FinalProjectv3.Models
         }
     
         public int IDJobDone { get; set; }
+
         public int IDAppoint { get; set; }
+        [Display(Name = "Date Completed On:")]
         public System.DateTime DateJobDone { get; set; }
+        [Display(Name = "Time Completed")]
         public System.TimeSpan TimeEndJob { get; set; }
+        [Display(Name = "Discount Name")]
         public Nullable<byte> IDDiscount { get; set; }
+        [Display(Name = "Discount Amount")]
         public Nullable<decimal> DiscountAmount { get; set; }
+        [Display(Name = "Feeback")]
         public string feedback { get; set; }
     
         public virtual APPOINTMENT APPOINTMENT { get; set; }
