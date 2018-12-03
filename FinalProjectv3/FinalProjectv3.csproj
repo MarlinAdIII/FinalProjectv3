@@ -423,6 +423,7 @@
     <Content Include="Views\STYLEs\HairStyle.cshtml" />
     <Content Include="Views\STYLEs\Pricing.cshtml" />
     <Content Include="Views\APPOINTMENTs\CreateClientAppoint.cshtml" />
+    <Content Include="Views\STYLEs\SelectStyles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
