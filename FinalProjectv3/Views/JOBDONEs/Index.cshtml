@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FinalProjectv3.Models.JOBDONE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateJobDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeEndJob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiscountAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.feedback)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APPOINTMENT.IDAppoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISCOUNT.TitleDiscount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateJobDone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeEndJob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiscountAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.feedback)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APPOINTMENT.IDAppoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISCOUNT.TitleDiscount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDJobDone }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDJobDone }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDJobDone })
+        </td>
+    </tr>
+}
+
+</table>

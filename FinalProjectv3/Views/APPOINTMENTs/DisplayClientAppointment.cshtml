@@ -1,0 +1,62 @@
+﻿@model IEnumerable<FinalProjectv3.Models.APPOINTMENT>
+
+@{
+    ViewBag.Title = "DisplayClientAppointment";
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAppoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginnTimeAppoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENT.FnameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STYLE.DesigStyle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAppoint)
+            </td>
+            <td>
+
+                @if ((bool)item.AddTakeOffAppoint)
+                {<div>Yes</div>}
+                else
+                { <div>No</div>}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeginnTimeAppoint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CLIENT.FnameClient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STYLE.DesigStyle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDAppoint }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDAppoint }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDAppoint })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

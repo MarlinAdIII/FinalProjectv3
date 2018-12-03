@@ -204,5 +204,43 @@ namespace FinalProjectv3.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult DisplayClientAppointment()
+        {
+            var aPPOINTMENTs = db.APPOINTMENTs.Include(a => a.CLIENT).Include(a => a.STYLE);
+            string email = User.Identity.Name;
+            var IDQuery = db.CLIENTs.Where(x => x.EmailClient == email).First();
+            return View(aPPOINTMENTs.Where(x => x.IDClientAppoint == IDQuery.IDClient).ToList());
+        }
+
+        public ActionResult IncompleteAppointments()
+        {
+          //  var completed = db.JOBDONEs.I
+           // var results = db.APPOINTMENTs.Where()
+            return View(db.APPOINTMENTs.ToList());
+        }
+
+        public ActionResult StartJob(int appnID)
+        {
+            ViewBag.IDDiscount = new SelectList(db.DISCOUNTs, "IDDiscount", "TitleDiscount");
+            ViewData["AppointmentID"] = appnID;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StartJob([Bind(Include = "IDJobDone,IDAppoint,DateJobDone,TimeEndJob,IDDiscount,DiscountAmount,feedback")] JOBDONE jOBDONE)
+        {
+            if (ModelState.IsValid)
+            {
+                db.JOBDONEs.Add(jOBDONE);
+                db.SaveChanges();
+                return RedirectToAction("IncompleteAppointments");
+            }
+
+            ViewBag.IDAppoint = new SelectList(db.APPOINTMENTs, "IDAppoint", "IDAppoint", jOBDONE.IDAppoint);
+            ViewBag.IDDiscount = new SelectList(db.DISCOUNTs, "IDDiscount", "TitleDiscount", jOBDONE.IDDiscount);
+            return View(jOBDONE);
+        }
     }
 }
