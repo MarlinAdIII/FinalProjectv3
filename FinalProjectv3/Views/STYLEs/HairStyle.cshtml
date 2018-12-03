@@ -42,7 +42,12 @@
                 @Html.DisplayFor(modelItem => item.DesigStyle)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HairProvStyle)
+               @if((bool)item.HairProvStyle)
+               {
+                   <div> Yes</div>
+               }
+               else
+               {<div> No</div>}
             </td>
             <!--<td>-->
             <!--    @Html.DisplayFor(modelItem => item.PriceStyle)-->

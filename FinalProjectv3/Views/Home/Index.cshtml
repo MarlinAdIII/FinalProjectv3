@@ -1,14 +1,58 @@
 ﻿@{
     ViewBag.Title = "Home";
 }
+<style>
+.example1 {
+ height: 50px;
+ position: relative;
+}
+.example1 h3 {
+ font-size: 3em;
+ color: black;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);
+ transform:translateX(100%);
+ /* Apply animation to this element */
+ -moz-animation: example1 15s linear infinite;
+ -webkit-animation: example1 15s linear infinite;
+ animation: example1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@@-moz-keyframes example1 {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@@-webkit-keyframes example1 {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@@keyframes example1 {
+ 0%   {
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);
+ }
+ 100% {
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%);
+ }
+}
+</style>
 
-<div class="jumbotron">
-    <h1>Palmetto Braiders</h1>
-    <p class="lead">Welcome to the home page of Palmetto Braiders!</p>
+<div class="example1">
+    <p class="lead"><h3>Welcome to the home page of Palmetto Braiders!</h3></p>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
+<div class="text-center">
+    <div class="display: visible-lg-inline-block">
         <h2>Getting started</h2>
         <p>
             Take a look at our braid styles and prices. If you've found what you like, go ahead and signup or login to schedule an appointment!

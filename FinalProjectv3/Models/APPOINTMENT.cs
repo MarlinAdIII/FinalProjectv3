@@ -29,15 +29,15 @@ namespace FinalProjectv3.Models
         [Display(Name = "Style")]
         public byte IDStypeAppoint { get; set; }
 
-        [Display(Name = "Date")]
+        [Display(Name = "Date and Time:")]
         public System.DateTime DateAppoint { get; set; }
 
-        [Display(Name = "Add Takeoff?")]
+        [Display(Name = "Remove Existing Hair?")]
         public Nullable<bool> AddTakeOffAppoint { get; set; }
 
         public Nullable<System.TimeSpan> BeginnTimeAppoint { get; set; }
 
-        [Display(Name = "Client")]
+        [Display(Name = "Client:")]
         public virtual CLIENT CLIENT { get; set; }
 
         [Display(Name = "Style")]
