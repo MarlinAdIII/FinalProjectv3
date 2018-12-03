@@ -79,7 +79,7 @@ namespace FinalProjectv3.Controllers
             CLIENT cLIENT = db.CLIENTs.Find(id);
             if (cLIENT == null)
             {
-                return HttpNotFound();
+                return Content("The Client was not found");
             }
             return View(cLIENT);
         }
@@ -95,7 +95,7 @@ namespace FinalProjectv3.Controllers
             {
                 db.Entry(cLIENT).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "CLIENTs", new { id = cLIENT.IDClient });
             }
             return View(cLIENT);
         }

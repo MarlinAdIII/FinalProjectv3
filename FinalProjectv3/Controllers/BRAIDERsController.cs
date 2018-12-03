@@ -93,7 +93,7 @@ namespace FinalProjectv3.Controllers
             {
                 db.Entry(bRAIDER).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "BRAIDERs", new { id = bRAIDER.IDBraider });
             }
             return View(bRAIDER);
         }
