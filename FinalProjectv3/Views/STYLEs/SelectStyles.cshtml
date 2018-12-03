@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "SelectStyles";
+    Layout = "~/Views/Shared/_BraiderLayout.cshtml";
 }
 
 <h2>Select Styles</h2>
@@ -20,9 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DescriptStyle)
             </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PictureStyle)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PictureStyle)
+            </th>
             <th>
                 Can you do this style?
             </th>

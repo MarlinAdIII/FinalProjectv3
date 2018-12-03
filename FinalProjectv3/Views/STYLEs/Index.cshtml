@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -32,32 +33,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesigStyle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescriptStyle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HairProvStyle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PriceStyle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PriceExtrat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PictureStyle)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDStyle }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDStyle }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDStyle })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesigStyle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptStyle)
+            </td>
+            <td>
+                @if ((bool)item.HairProvStyle)
+                {<div>Yes</div>}
+                else
+                { <div>No</div>}
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceStyle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceExtrat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PictureStyle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDStyle }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDStyle }) |
+            </td>
+        </tr>
+    }
 
 </table>
