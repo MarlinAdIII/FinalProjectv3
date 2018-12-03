@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinalProjectv3.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FinalProjectv3.Controllers
 {
@@ -52,12 +53,12 @@ namespace FinalProjectv3.Controllers
 
             int idc = CurClientId.IDClient;
 
-            var userAppointments = from cli in db.APPOINTMENTs.Include("APPOINTMENT")
-                                   where cli.IDClientAppoint.Equals(idc)
-                                   select cli.CLIENT;
+           // var userAppointments = from cli in db.APPOINTMENTs.Include("APPOINTMENT")
+                         //          where cli.IDClientAppoint.Equals(idc)
+                            //       select cli.CLIENT;
 
 
-            ViewBag["UserAppointments"] = userAppointments;
+            ViewBag["UserAppointments"] = CurClientId.IDClient;
             return View();
 
         }
@@ -115,6 +116,14 @@ namespace FinalProjectv3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateClientAppoint([Bind(Include = "IDAppoint,IDClientAppoint,IDStypeAppoint,DateAppoint,AddTakeOffAppoint,BeginnTimeAppoint")] APPOINTMENT aPPOINTMENT)
         {
+            string email = User.Identity.Name;
+
+            var CurClientId = db.CLIENTs.Where(z => z.EmailClient.Equals(email)).First();//.Select(u => u.IDClient);
+
+            int idc = CurClientId.IDClient;
+
+            aPPOINTMENT.IDClientAppoint = idc;
+
             if (ModelState.IsValid)
             {
                 db.APPOINTMENTs.Add(aPPOINTMENT);
