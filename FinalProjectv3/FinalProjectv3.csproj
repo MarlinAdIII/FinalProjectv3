@@ -318,6 +318,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bob1.jpg" />
+    <Content Include="Images\boxBraid1.jpg" />
+    <Content Include="Images\cornRow1.jpg" />
+    <Content Include="Images\fauxLocks1.jpg" />
+    <Content Include="Images\senegaleseTwist1.jpg" />
     <Content Include="Models\FPModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FPModel.edmx</DependentUpon>
