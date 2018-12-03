@@ -11,11 +11,15 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SKILL
     {
+        [Display(Name = "Skill ID:")]
         public int IDSkill { get; set; }
+        [Display(Name = "Braider ID:")]
         public int IDBraider { get; set; }
+        [Display(Name = "Style ID")]
         public byte IDStyle { get; set; }
     
         public virtual BRAIDER BRAIDER { get; set; }

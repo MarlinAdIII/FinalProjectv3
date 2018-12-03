@@ -1,0 +1,35 @@
+﻿@model FinalProjectv3.Models.DISCOUNT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DISCOUNT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TitleDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TitleDiscount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountDiscount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDDiscount }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

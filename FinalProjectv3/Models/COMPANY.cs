@@ -11,18 +11,29 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class COMPANY
     {
+    
         public byte IDComp { get; set; }
+        [Display(Name = "Name:")]
         public string TitleComp { get; set; }
+        [Display(Name = "Office Phone:")]
         public string PhoneOffice { get; set; }
+        [Display(Name = "Phone Number Owner:")]
         public string PhoneOwner { get; set; }
+        [Display(Name = "Street Address")]
         public string StreetComp { get; set; }
+        [Display(Name = "County:")]
         public string CountyComp { get; set; }
+        [Display(Name = "Zip Code")]
         public Nullable<short> ZipcodeComp { get; set; }
+        [Display(Name = "Email")]
         public string EmailComp { get; set; }
+        [Display(Name = "Website Address:")]
         public string WebsiteComp { get; set; }
+        
         public Nullable<double> PartPayeBraid { get; set; }
         public Nullable<int> IDOwnerBraider { get; set; }
         public Nullable<decimal> CostHairDeduct { get; set; }

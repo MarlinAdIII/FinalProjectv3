@@ -22,24 +22,34 @@ namespace FinalProjectv3.Models
             this.JOBEXECUTERs = new HashSet<JOBEXECUTER>();
             this.SKILLS = new HashSet<SKILL>();
         }
-    
+
+        [Display(Name = "Braider ID")]
         public int IDBraider { get; set; }
-        [Display(Name = "First Name:")]
+
+        [Display(Name = "First Name")]
         public string FnameBraider { get; set; }
-        [Display(Name = "Middle Name:")]
+
+        [Display(Name = "Middle Name")]
         public string MnameBraider { get; set; }
-        [Display(Name = "Last Name:")]
+
+        [Display(Name = "Last Name")]
         public string LnameBraider { get; set; }
-        [Display(Name = "Phone Number")]
+
+        [Display(Name = "Phone Number:")]
         public string PhoneBraider { get; set; }
-        [Display(Name = "Cellphone Number:")]
+
+        [Display(Name = "Cell Number:")]
         public string CelBraider { get; set; }
+
         [Display(Name = "Street Address:")]
         public string StreetBraider { get; set; }
+
         [Display(Name = "County:")]
         public string CountyBraider { get; set; }
-        [Display(Name = "Zip Code:")]
+
+        [Display(Name = "Zipcode:")]
         public Nullable<short> ZipCodeBraider { get; set; }
+
         [Display(Name = "Email:")]
         public string EmailBraider { get; set; }
         public string IDUserBraider { get; set; }

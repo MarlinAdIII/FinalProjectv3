@@ -201,6 +201,7 @@
     <Compile Include="Controllers\BRAIDERsController.cs" />
     <Compile Include="Controllers\CLIENTsController.cs" />
     <Compile Include="Controllers\COMPANiesController.cs" />
+    <Compile Include="Controllers\DISCOUNTsController.cs" />
     <Compile Include="Controllers\HAIRController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JOBDONEsController.cs" />
@@ -433,6 +434,11 @@
     <Content Include="Views\APPOINTMENTs\IncompleteAppointments.cshtml" />
     <Content Include="Views\APPOINTMENTs\StartJob.cshtml" />
     <Content Include="Views\STYLEs\SelectStyles.cshtml" />
+    <Content Include="Views\DISCOUNTs\Create.cshtml" />
+    <Content Include="Views\DISCOUNTs\Delete.cshtml" />
+    <Content Include="Views\DISCOUNTs\Details.cshtml" />
+    <Content Include="Views\DISCOUNTs\Edit.cshtml" />
+    <Content Include="Views\DISCOUNTs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
