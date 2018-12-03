@@ -7,8 +7,8 @@
 <h2>Select Styles</h2>
 
 <p>
-    Please check the styles that you
-    feel that you are capable of doing
+Please check the styles that you 
+feel that you are capable of doing
 </p>
 @using (Html.BeginForm())
 {
@@ -20,9 +20,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.DescriptStyle)
             </th>
+            <!-- Uncomment when images work
                 <th>
-                    @Html.DisplayNameFor(model => model.PictureStyle)
+                    'at symbol' Html.DisplayNameFor(model => model.PictureStyle)
                 </th>
+            -->
             <th>
                 Can you do this style?
             </th>
@@ -30,24 +32,26 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DesigStyle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescriptStyle)
-                </td>
-                <td>
-                    @{string stylePath = item.PictureStyle; }
-                    <img src=stylePath style="width:50%">
-                </td>
-                <td>
-                    @Html.CheckBox("isSkill")
-                    @Html.HiddenFor(model => item.IDStyle)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesigStyle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptStyle)
+            </td>
+            <!-- Uncomment when images work
+                    <td>
+                        'at symbol' Html.DisplayFor(modelItem => item.PictureStyle)
+                    </td>
+            -->
+            <td>
+                @Html.CheckBox("isSkill")
+                @Html.HiddenFor(model => item.IDStyle)
+            </td>
+        </tr>
         }
 
     </table>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit"/>
 }
+

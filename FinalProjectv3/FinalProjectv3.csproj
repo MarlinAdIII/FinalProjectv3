@@ -204,6 +204,7 @@
     <Compile Include="Controllers\DISCOUNTsController.cs" />
     <Compile Include="Controllers\HAIRController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JOBDONEsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PRODUCTsController.cs" />
     <Compile Include="Controllers\STYLEsController.cs" />
@@ -424,6 +425,14 @@
     <Content Include="Views\STYLEs\HairStyle.cshtml" />
     <Content Include="Views\STYLEs\Pricing.cshtml" />
     <Content Include="Views\APPOINTMENTs\CreateClientAppoint.cshtml" />
+    <Content Include="Views\APPOINTMENTs\DisplayClientAppointment.cshtml" />
+    <Content Include="Views\JOBDONEs\Create.cshtml" />
+    <Content Include="Views\JOBDONEs\Delete.cshtml" />
+    <Content Include="Views\JOBDONEs\Details.cshtml" />
+    <Content Include="Views\JOBDONEs\Edit.cshtml" />
+    <Content Include="Views\JOBDONEs\Index.cshtml" />
+    <Content Include="Views\APPOINTMENTs\IncompleteAppointments.cshtml" />
+    <Content Include="Views\APPOINTMENTs\StartJob.cshtml" />
     <Content Include="Views\STYLEs\SelectStyles.cshtml" />
     <Content Include="Views\DISCOUNTs\Create.cshtml" />
     <Content Include="Views\DISCOUNTs\Delete.cshtml" />

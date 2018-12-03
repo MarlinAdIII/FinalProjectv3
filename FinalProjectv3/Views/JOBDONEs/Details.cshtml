@@ -1,0 +1,66 @@
+﻿@model FinalProjectv3.Models.JOBDONE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JOBDONE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateJobDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateJobDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeEndJob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeEndJob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.feedback)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.feedback)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APPOINTMENT.IDAppoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APPOINTMENT.IDAppoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISCOUNT.TitleDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISCOUNT.TitleDiscount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDJobDone }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
