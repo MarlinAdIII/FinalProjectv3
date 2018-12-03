@@ -42,6 +42,10 @@ namespace FinalProjectv3.Models
 
         [Display(Name = "Picture")]
         public string PictureStyle { get; set; }
+
+        //This was added so the checkboxes work
+        //It is not in the database
+        public bool isSkill{ get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APPOINTMENT> APPOINTMENTs { get; set; }
@@ -51,5 +55,10 @@ namespace FinalProjectv3.Models
         public virtual ICollection<EXTRATSTYLE> EXTRATSTYLEs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SKILL> SKILLS { get; set; }
+    }
+
+    public class StyleList
+    {
+        public List<STYLE> Styles { get; set; }
     }
 }

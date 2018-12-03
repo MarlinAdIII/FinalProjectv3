@@ -137,5 +137,57 @@ namespace FinalProjectv3.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SelectStyles()
+        {
+
+            StyleList sList = new StyleList();
+            sList.Styles = db.STYLEs.ToList();
+            return View(db.STYLEs.ToList());
+        }
+
+        [HttpPost, ActionName("SelectStyles")]
+        public ActionResult CreateSkill(System.Web.Mvc.FormCollection form)
+        {
+            string braiderEmail = User.Identity.Name;
+            var query = db.BRAIDERs.Where(x => x.EmailBraider == braiderEmail).First();
+            int braiderID = query.IDBraider;
+ /*This is how form works
+ *you access the values you want with form["nameOfAttributeInView"]
+* form["isSkill"] is a comma separated list string of true or false for each check box
+* There is a fourth value and I don't know why, it is always false
+* form["item.IDStyle"] is a comma separated list string of integer values for each id
+* Separate the string by the commas, parseInt the styleIDs and use them to create Skills      
+ */
+            for (int i = 0; i <= form["item.IDStyle"].Length; i++)
+            {
+                char key = form["item.IDStyle"][i];
+            }
+            /*
+            //This is getting a null error
+            for (int i = 0; i <sl.Length; i++)
+            {
+                var testQuery = db.SKILLS.Where(x =>
+                    x.IDBraider == braiderID &&
+                    x.IDStyle == sl[i].IDStyle);
+
+                if(testQuery.Equals(null))
+                {
+                    db.SKILLS.Add(new SKILL
+                    {
+                        IDBraider = braiderID,
+                        IDStyle = sl[i].IDStyle
+                    });
+
+                    db.SaveChanges();
+                }
+            }*/
+
+            String email = User.Identity.Name;
+            var currentUser = db.BRAIDERs.Where(x => x.EmailBraider == email).First();
+            
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
