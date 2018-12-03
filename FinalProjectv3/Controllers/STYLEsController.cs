@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -60,17 +61,35 @@ namespace FinalProjectv3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDStyle,DesigStyle,DescriptStyle,HairProvStyle,PriceStyle,PriceExtrat,PictureStyle")] STYLE sTYLE)
+        public ActionResult Create(STYLE hairstyle, HttpPostedFileBase file)
         {
+            STYLE newHairstyle = new STYLE();
             if (ModelState.IsValid)
             {
-                db.STYLEs.Add(sTYLE);
+                var fileName = file.FileName;
+                string path = Path.Combine(Server.MapPath("~/images"), Path.GetFileName(fileName));
+                file.SaveAs(path);
+
+
+                newHairstyle.IDStyle = hairstyle.IDStyle;
+                newHairstyle.DesigStyle = hairstyle.DesigStyle;
+                newHairstyle.DescriptStyle = hairstyle.DescriptStyle;
+                newHairstyle.HairProvStyle = hairstyle.HairProvStyle;
+                newHairstyle.PriceStyle = hairstyle.PriceStyle;
+                newHairstyle.PriceExtrat = 0;
+                newHairstyle.PictureStyle = "~/images/" + fileName;
+
+
+                db.STYLEs.Add(newHairstyle);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Hairstyle");
             }
 
-            return View(sTYLE);
+            return View(hairstyle);
+
         }
+
+
 
         // GET: STYLEs/Edit/5
         public ActionResult Edit(byte? id)
