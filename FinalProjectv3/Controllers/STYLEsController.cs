@@ -171,40 +171,49 @@ namespace FinalProjectv3.Controllers
             string braiderEmail = User.Identity.Name;
             var query = db.BRAIDERs.Where(x => x.EmailBraider == braiderEmail).First();
             int braiderID = query.IDBraider;
- /*This is how form works
- *you access the values you want with form["nameOfAttributeInView"]
-* form["isSkill"] is a comma separated list string of true or false for each check box
-* There is a fourth value and I don't know why, it is always false
-* form["item.IDStyle"] is a comma separated list string of integer values for each id
-* Separate the string by the commas, parseInt the styleIDs and use them to create Skills      
- */
-            for (int i = 0; i <= form["item.IDStyle"].Length; i++)
+            /*This is how form works
+            *you access the values you want with form["nameOfAttributeInView"]
+           * form["isSkill"] is a comma separated list string of true or false for each check box
+           * There is a fourth value and I don't know why, it is always false
+           * form["item.IDStyle"] is a comma separated list string of integer values for each id
+           * Separate the string by the commas, parseInt the styleIDs and use them to create Skills      
+            */
+            string[] isSkill = form["isSkill"].Split(',');
+            string[] styleIDs = form["item.IDStyle"].Split(',');
+            for (int i = 0; i <= styleIDs.Length; i++)
             {
-                char key = form["item.IDStyle"][i];
-            }
-            /*
-            //This is getting a null error
-            for (int i = 0; i <sl.Length; i++)
-            {
-                var testQuery = db.SKILLS.Where(x =>
-                    x.IDBraider == braiderID &&
-                    x.IDStyle == sl[i].IDStyle);
-
-                if(testQuery.Equals(null))
+                try
                 {
-                    db.SKILLS.Add(new SKILL
+                    if (isSkill[i].Equals("true"))
                     {
-                        IDBraider = braiderID,
-                        IDStyle = sl[i].IDStyle
-                    });
+                        Byte styleID = Convert.ToByte(styleIDs[i]);
+                        try
+                        {
+                            var testQuery = db.SKILLS.Where(x =>
+                            x.IDBraider == braiderID &&
+                            x.IDStyle == styleID).First();
+                        }
+                        catch (System.InvalidOperationException)
+                        {
+                            //This ensures that braiders and styles do not repeat
+                            SKILL newSkill = new SKILL();
+                            newSkill.IDBraider = braiderID;
+                            newSkill.IDStyle = styleID;
 
-                    db.SaveChanges();
+                            db.SKILLS.Add(newSkill);
+                            db.SaveChanges();
+                        }
+                    }
                 }
-            }*/
+                catch (System.IndexOutOfRangeException)
+                {
+                    //If the hit submit but don't select any this will happen
+                }
+            }
 
             String email = User.Identity.Name;
             var currentUser = db.BRAIDERs.Where(x => x.EmailBraider == email).First();
-            
+
 
             return RedirectToAction("Index", "Home");
         }
