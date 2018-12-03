@@ -96,17 +96,16 @@ namespace FinalProjectv3.Controllers
 
 
         //*******************************************Client Appointment******************************************
-        /*
+        
         // GET: APPOINTMENTs/Create Client Appointment
         public ActionResult CreateClientAppoint()
         {
          
-
-            ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "Fullname", "FnameClient");
+            ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "IDClient", "FnameClient");
             ViewBag.IDStypeAppoint = new SelectList(db.STYLEs, "IDStyle", "DesigStyle");
             return View();
         }
-        */
+        
         //*************************************************************************************************************
 
         // POST: APPOINTMENTs/Create
