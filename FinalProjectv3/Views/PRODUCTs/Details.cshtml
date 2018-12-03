@@ -1,0 +1,42 @@
+﻿@model FinalProjectv3.Models.PRODUCT
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>PRODUCT</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TitleProd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TitleProd)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TYPEPRODUCT.TitleTypeProd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TYPEPRODUCT.TitleTypeProd)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IDProd }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

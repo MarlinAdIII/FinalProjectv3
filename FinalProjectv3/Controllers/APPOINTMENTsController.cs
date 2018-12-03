@@ -35,14 +35,45 @@ namespace FinalProjectv3.Controllers
             }
             return View(aPPOINTMENT);
         }
+        //******************************************************
+
+        //****************************************************
+        
+        public ActionResult DetailClientAppoint()
+        {
+
+            //Dim user_id = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+
+            //var CurClientUserId = db.AspNetUsers.Where(x => x.UserName == System.Web.HttpContext.Current.User.Identity.Name).FirstOrDefault().Id;
+
+            string email = User.Identity.Name;
+
+            var CurClientId = db.CLIENTs.Where(z => z.EmailClient.Equals(email)).First();//.Select(u => u.IDClient);
+
+            int idc = CurClientId.IDClient;
+
+            var userAppointments = from cli in db.APPOINTMENTs.Include("APPOINTMENT")
+                                   where cli.IDClientAppoint.Equals(idc)
+                                   select cli.CLIENT;
+
+
+            ViewBag["UserAppointments"] = userAppointments;
+            return View();
+
+        }
+    
+        //***************************************************************
 
         // GET: APPOINTMENTs/Create
         public ActionResult Create()
         {
+
             ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "IDClient", "FnameClient");
             ViewBag.IDStypeAppoint = new SelectList(db.STYLEs, "IDStyle", "DesigStyle");
             return View();
         }
+
+  
 
         // POST: APPOINTMENTs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -65,13 +96,17 @@ namespace FinalProjectv3.Controllers
 
 
         //*******************************************Client Appointment******************************************
-        // GET: APPOINTMENTs/Create
+        
+        // GET: APPOINTMENTs/Create Client Appointment
         public ActionResult CreateClientAppoint()
         {
+         
             ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "IDClient", "FnameClient");
             ViewBag.IDStypeAppoint = new SelectList(db.STYLEs, "IDStyle", "DesigStyle");
             return View();
         }
+        
+        //*************************************************************************************************************
 
         // POST: APPOINTMENTs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

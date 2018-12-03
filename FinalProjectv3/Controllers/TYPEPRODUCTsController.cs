@@ -8,123 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProjectv3.Models;
 
-namespace FinalProjectv3.Controllers 
+namespace FinalProjectv3.Controllers
 {
-    public class STYLEsController : Controller
+    public class TYPEPRODUCTsController : Controller
     {
         private FinalProjectDBEntities db = new FinalProjectDBEntities();
 
-        // GET: STYLEs
+        // GET: TYPEPRODUCTs
         public ActionResult Index()
         {
-            return View(db.STYLEs.ToList());
+            return View(db.TYPEPRODUCTs.ToList());
         }
 
-        //GET: Hairstyle
-        public ActionResult Hairstyle()
-        {
-            return View(db.STYLEs.ToList());
-        }
-
-
-        //GET: Pricing
-        public ActionResult Pricing()
-        {
-            return View(db.STYLEs.ToList());
-        }
-
-
-        // GET: STYLEs/Details/5
+        // GET: TYPEPRODUCTs/Details/5
         public ActionResult Details(byte? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            STYLE sTYLE = db.STYLEs.Find(id);
-            if (sTYLE == null)
+            TYPEPRODUCT tYPEPRODUCT = db.TYPEPRODUCTs.Find(id);
+            if (tYPEPRODUCT == null)
             {
                 return HttpNotFound();
             }
-            return View(sTYLE);
+            return View(tYPEPRODUCT);
         }
 
-        // GET: STYLEs/Create
+        // GET: TYPEPRODUCTs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: STYLEs/Create
+        // POST: TYPEPRODUCTs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDStyle,DesigStyle,DescriptStyle,HairProvStyle,PriceStyle,PriceExtrat,PictureStyle")] STYLE sTYLE)
+        public ActionResult Create([Bind(Include = "IDTypeProd,TitleTypeProd")] TYPEPRODUCT tYPEPRODUCT)
         {
             if (ModelState.IsValid)
             {
-                db.STYLEs.Add(sTYLE);
+                db.TYPEPRODUCTs.Add(tYPEPRODUCT);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(sTYLE);
+            return View(tYPEPRODUCT);
         }
 
-        // GET: STYLEs/Edit/5
+        // GET: TYPEPRODUCTs/Edit/5
         public ActionResult Edit(byte? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            STYLE sTYLE = db.STYLEs.Find(id);
-            if (sTYLE == null)
+            TYPEPRODUCT tYPEPRODUCT = db.TYPEPRODUCTs.Find(id);
+            if (tYPEPRODUCT == null)
             {
                 return HttpNotFound();
             }
-            return View(sTYLE);
+            return View(tYPEPRODUCT);
         }
 
-        // POST: STYLEs/Edit/5
+        // POST: TYPEPRODUCTs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDStyle,DesigStyle,DescriptStyle,HairProvStyle,PriceStyle,PriceExtrat,PictureStyle")] STYLE sTYLE)
+        public ActionResult Edit([Bind(Include = "IDTypeProd,TitleTypeProd")] TYPEPRODUCT tYPEPRODUCT)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sTYLE).State = EntityState.Modified;
+                db.Entry(tYPEPRODUCT).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(sTYLE);
+            return View(tYPEPRODUCT);
         }
 
-        // GET: STYLEs/Delete/5
+        // GET: TYPEPRODUCTs/Delete/5
         public ActionResult Delete(byte? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            STYLE sTYLE = db.STYLEs.Find(id);
-            if (sTYLE == null)
+            TYPEPRODUCT tYPEPRODUCT = db.TYPEPRODUCTs.Find(id);
+            if (tYPEPRODUCT == null)
             {
                 return HttpNotFound();
             }
-            return View(sTYLE);
+            return View(tYPEPRODUCT);
         }
 
-        // POST: STYLEs/Delete/5
+        // POST: TYPEPRODUCTs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(byte id)
         {
-            STYLE sTYLE = db.STYLEs.Find(id);
-            db.STYLEs.Remove(sTYLE);
+            TYPEPRODUCT tYPEPRODUCT = db.TYPEPRODUCTs.Find(id);
+            db.TYPEPRODUCTs.Remove(tYPEPRODUCT);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

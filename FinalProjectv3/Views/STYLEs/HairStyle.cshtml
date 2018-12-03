@@ -60,7 +60,7 @@
             </td>
             -->
             <td>
-                @Html.ActionLink("See price", "Edit", new { id = item.IDStyle }) |-->
+                <!--@Html.ActionLink("See price", "PricingPerStyle", new { id = item.IDStyle })-->
                 <!--@Html.ActionLink("Details", "Details", new { id = item.IDStyle }) |-->
                 <!--@Html.ActionLink("Delete", "Delete", new { id = item.IDStyle })-->
             </td>
@@ -70,5 +70,15 @@
 </table>
 
 <p>
-    @Html.ActionLink("Make appointment", "CreateClientAppoint", "Appointments")
+    @Html.ActionLink("Schedule appointment", "CreateClientAppoint", "Appointments")
 </p>
+
+<p>
+    @Html.ActionLink("See all prices", "Pricing", "Styles")
+</p>
+
+<!--
+<p>
+    @Html.ActionLink("See my Appointment", "DetailClientAppoint", "Appointments")
+</p>
+-->

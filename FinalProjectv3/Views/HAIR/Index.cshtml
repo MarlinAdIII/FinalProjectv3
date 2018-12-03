@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FinalProjectv3.Models.HAIR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TitleHair)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT.TitleProd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TitleHair)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT.TitleProd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDHair }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDHair }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDHair })
+        </td>
+    </tr>
+}
+
+</table>
