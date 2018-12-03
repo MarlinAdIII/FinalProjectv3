@@ -11,7 +11,8 @@ namespace FinalProjectv3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BRAIDER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,14 +24,23 @@ namespace FinalProjectv3.Models
         }
     
         public int IDBraider { get; set; }
+        [Display(Name = "First Name:")]
         public string FnameBraider { get; set; }
+        [Display(Name = "Middle Name:")]
         public string MnameBraider { get; set; }
+        [Display(Name = "Last Name:")]
         public string LnameBraider { get; set; }
+        [Display(Name = "Phone Number")]
         public string PhoneBraider { get; set; }
+        [Display(Name = "Cellphone Number:")]
         public string CelBraider { get; set; }
+        [Display(Name = "Street Address:")]
         public string StreetBraider { get; set; }
+        [Display(Name = "County:")]
         public string CountyBraider { get; set; }
+        [Display(Name = "Zip Code:")]
         public Nullable<short> ZipCodeBraider { get; set; }
+        [Display(Name = "Email:")]
         public string EmailBraider { get; set; }
         public string IDUserBraider { get; set; }
     
