@@ -67,7 +67,7 @@ namespace FinalProjectv3.Controllers
             if (ModelState.IsValid)
             {
                 var fileName = file.FileName;
-                string path = Path.Combine(Server.MapPath("~/images"), Path.GetFileName(fileName));
+                string path = Path.Combine(Server.MapPath("~/Images"), Path.GetFileName(fileName));
                 file.SaveAs(path);
 
 
@@ -77,7 +77,7 @@ namespace FinalProjectv3.Controllers
                 newHairstyle.HairProvStyle = hairstyle.HairProvStyle;
                 newHairstyle.PriceStyle = hairstyle.PriceStyle;
                 newHairstyle.PriceExtrat = 0;
-                newHairstyle.PictureStyle = "~/images/" + fileName;
+                newHairstyle.PictureStyle = "~/Images/" + fileName;
 
 
                 db.STYLEs.Add(newHairstyle);
