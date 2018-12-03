@@ -3,6 +3,7 @@
 }
 
 <div class="navbar-collapse collapse">
+    @RenderSection("scripts", required: false)
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Add/Delete Braids\n and Products", "IDK", "IDK")</li>
         <li>@Html.ActionLink("Create Braider Account", "RegisterBraider", "Account")</li>
