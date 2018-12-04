@@ -33,7 +33,7 @@ namespace FinalProjectv3.Models
         public Nullable<byte> IDDiscount { get; set; }
         [Display(Name = "Discount Amount")]
         public Nullable<decimal> DiscountAmount { get; set; }
-        [Display(Name = "Feeback")]
+        [Display(Name = "Feedback")]
         public string feedback { get; set; }
     
         public virtual APPOINTMENT APPOINTMENT { get; set; }

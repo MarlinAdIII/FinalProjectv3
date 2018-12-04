@@ -23,10 +23,10 @@ namespace FinalProjectv3.Models
 
         public int IDAppoint { get; set; }
 
-        [Display(Name = "Client")]
+        [Display(Name = "Client Name")]
         public int IDClientAppoint { get; set; }
 
-        [Display(Name = "Style")]
+        [Display(Name = "Style:")]
         public byte IDStypeAppoint { get; set; }
 
         [Display(Name = "Date and Time:")]
@@ -35,12 +35,13 @@ namespace FinalProjectv3.Models
         [Display(Name = "Remove Existing Hair?")]
         public Nullable<bool> AddTakeOffAppoint { get; set; }
 
+        [Display(Name = "Begin Time:")]
         public Nullable<System.TimeSpan> BeginnTimeAppoint { get; set; }
 
-        [Display(Name = "Client:")]
+      
         public virtual CLIENT CLIENT { get; set; }
 
-        [Display(Name = "Style")]
+        
         public virtual STYLE STYLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JOBDONE> JOBDONEs { get; set; }

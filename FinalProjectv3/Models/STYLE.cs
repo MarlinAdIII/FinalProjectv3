@@ -37,7 +37,7 @@ namespace FinalProjectv3.Models
         [Display(Name = "Initial Cost")]
         public Nullable<decimal> PriceStyle { get; set; }
 
-        [Display(Name = "Extrat")]
+        [Display(Name = "Extra Cost")]
         public Nullable<decimal> PriceExtrat { get; set; }
 
         [Display(Name = "Picture")]
