@@ -18,6 +18,7 @@ namespace FinalProjectv3.Controllers
         // GET: APPOINTMENTs
         public ActionResult Index()
         {
+        
             var aPPOINTMENTs = db.APPOINTMENTs.Include(a => a.CLIENT).Include(a => a.STYLE);
             return View(aPPOINTMENTs.ToList());
         }
@@ -39,7 +40,7 @@ namespace FinalProjectv3.Controllers
         //******************************************************
 
         //****************************************************
-        
+
         public ActionResult DetailClientAppoint()
         {
 
@@ -53,16 +54,16 @@ namespace FinalProjectv3.Controllers
 
             int idc = CurClientId.IDClient;
 
-           // var userAppointments = from cli in db.APPOINTMENTs.Include("APPOINTMENT")
-                         //          where cli.IDClientAppoint.Equals(idc)
-                            //       select cli.CLIENT;
+            // var userAppointments = from cli in db.APPOINTMENTs.Include("APPOINTMENT")
+            //          where cli.IDClientAppoint.Equals(idc)
+            //       select cli.CLIENT;
 
 
             ViewBag["UserAppointments"] = CurClientId.IDClient;
             return View();
 
         }
-    
+
         //***************************************************************
 
         // GET: APPOINTMENTs/Create
@@ -74,7 +75,7 @@ namespace FinalProjectv3.Controllers
             return View();
         }
 
-  
+
 
         // POST: APPOINTMENTs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -97,16 +98,16 @@ namespace FinalProjectv3.Controllers
 
 
         //*******************************************Client Appointment******************************************
-        
+
         // GET: APPOINTMENTs/Create Client Appointment
         public ActionResult CreateClientAppoint()
         {
-         
+
             ViewBag.IDClientAppoint = new SelectList(db.CLIENTs, "IDClient", "FnameClient");
             ViewBag.IDStypeAppoint = new SelectList(db.STYLEs, "IDStyle", "DesigStyle");
             return View();
         }
-        
+
         //*************************************************************************************************************
 
         // POST: APPOINTMENTs/Create
@@ -269,4 +270,5 @@ namespace FinalProjectv3.Controllers
             return View(jOBDONE);
         }
     }
+       
 }

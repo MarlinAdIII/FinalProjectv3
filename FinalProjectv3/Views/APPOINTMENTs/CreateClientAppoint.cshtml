@@ -33,7 +33,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.IDStypeAppoint, "IDStypeAppoint", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.IDStypeAppoint, "Style:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("IDStypeAppoint", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.IDStypeAppoint, "", new { @class = "text-danger" })
@@ -77,9 +77,7 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to pricing", "Pricing", "Styles")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

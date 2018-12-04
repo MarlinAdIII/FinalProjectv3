@@ -54,9 +54,9 @@
                 @Html.DisplayFor(modelItem => item.PriceExtrat)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PictureStyle)
-            </td>
-            <td>
+                <img src="@Url.Content(item.PictureStyle)" alt="Image" height="50" width="50" />
+
+<td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.IDStyle }) |
                 @Html.ActionLink("Details", "Details", new { id = item.IDStyle }) |
             </td>
