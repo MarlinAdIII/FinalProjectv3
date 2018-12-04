@@ -2,22 +2,24 @@
 
 @{
     ViewBag.Title = "StartJob";
-    
+    Layout = "~/Views/Shared/_BraiderLayout.cshtml";
+
 }
 
 <h2>StartJob</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Finish Style</h4>
+        <h4>Finish Appointment</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.Hidden("IDAppoint", ViewData["AppointmentID"])
         <div class="form-group">
-            @Html.LabelFor(model => model.DateJobDone, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+            @Html.Label("model.DateJobDone", "Date Completed On (MM/DD/YYY)", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DateJobDone, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateJobDone, "", new { @class = "text-danger" })
@@ -25,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TimeEndJob, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("model.TimeEndJob", "Time Completed (Military Time)", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TimeEndJob, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TimeEndJob, "", new { @class = "text-danger" })
@@ -65,5 +67,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "IncompleteAppointments")
 </div>

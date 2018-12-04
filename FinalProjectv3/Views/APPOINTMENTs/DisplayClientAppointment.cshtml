@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "DisplayClientAppointment";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
 }
 
 
@@ -51,8 +52,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.IDAppoint }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IDAppoint }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IDAppoint })
+                @Html.ActionLink("Details", "Details", new { id = item.IDAppoint }) 
             </td>
         </tr>
     }

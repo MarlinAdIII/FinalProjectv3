@@ -16,6 +16,7 @@ namespace FinalProjectv3.Controllers
         private ApplicationUserManager _userManager;
         //1 is a User account
         //2 is a Braider account
+        //3 is the owner account
   
 
         public AccountController()

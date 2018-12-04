@@ -25,7 +25,7 @@ namespace FinalProjectv3.Models
         public int IDJobDone { get; set; }
 
         public int IDAppoint { get; set; }
-        [Display(Name = "Date Completed On:")]
+        [Display(Name = "Date Completed On")]
         public System.DateTime DateJobDone { get; set; }
         [Display(Name = "Time Completed")]
         public System.TimeSpan TimeEndJob { get; set; }

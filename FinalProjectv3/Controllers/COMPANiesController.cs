@@ -85,50 +85,34 @@ namespace FinalProjectv3.Controllers
         {
             if (ModelState.IsValid)
             {
+                //The current admin becomes a braider
+                db.Database.ExecuteSqlCommand("UPDATE dbo.AspNetUsers SET Type = 2 WHERE Email = @p0", User.Identity.Name);
                 db.Entry(cOMPANY).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                COMPANY comp = db.COMPANies.First<COMPANY>();
+                int? newOwnerID = comp.IDOwnerBraider;
+                BRAIDER admin = db.BRAIDERs.Where(b => b.IDBraider == newOwnerID).First();
+                
+                //The current admin in the database gets admin privliages
+                db.Database.ExecuteSqlCommand("UPDATE dbo.AspNetUsers SET Type = 3 WHERE Email = @p0", admin.EmailBraider);
+                
+                var currentUser = db.AspNetUsers.Where(anu => anu.UserName == User.Identity.Name).First();
+
+                switch(currentUser.Type)
+                {
+                    case 2:
+                        var braider = db.BRAIDERs.Where(x => x.EmailBraider == User.Identity.Name).First();
+                        return RedirectToAction("Details", "BRAIDERs", new { id = braider.IDBraider });
+                    case 3:
+                        return View("Details", "Companies", new {id = 1});
+                }
+                
+                
             }
             return View(cOMPANY);
         }
 
-        // GET: COMPANies/Delete/5
-        /*public ActionResult Delete(byte? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            COMPANY cOMPANY = db.COMPANies.Find(id);
-            if (cOMPANY == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cOMPANY);
-        }
-
-        // POST: COMPANies/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(byte id)
-        {
-            COMPANY cOMPANY = db.COMPANies.Find(id);
-            db.COMPANies.Remove(cOMPANY);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }*/
-        
-        //the methods below need views
-        public ActionResult Discount()
-        {
-            return View();
-        }
-
-        public ActionResult CreateBraider(int id)
-        {
-            //the create view for the braider needs to be linked here
-            return View();
-        }
 
         public ActionResult AddDeleteProducts()
         {
@@ -139,13 +123,6 @@ namespace FinalProjectv3.Controllers
         {
             return View();
         }
-
-        public ActionResult ViewAppointments()
-        {
-            return View();
-        }
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

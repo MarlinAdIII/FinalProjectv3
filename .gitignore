@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/FinalProjectv3/Properties/PublishProfiles/DavisAssign0111111111111113 - Web Deploy.pubxml
+/FinalProjectv3/Properties/PublishProfiles/FinalProjectv300000000000002 - Web Deploy.pubxml
+/FinalProjectv3/Properties/PublishProfiles/FinalProjectv320181203063647 - Web Deploy.pubxml
+/FinalProjectv3/Properties/PublishProfiles/FinalProjectv320181203060532 - Web Deploy.pubxml

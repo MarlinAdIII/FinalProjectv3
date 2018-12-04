@@ -215,9 +215,35 @@ namespace FinalProjectv3.Controllers
 
         public ActionResult IncompleteAppointments()
         {
-          //  var completed = db.JOBDONEs.I
-           // var results = db.APPOINTMENTs.Where()
-            return View(db.APPOINTMENTs.ToList());
+            string email = User.Identity.Name;
+            var IDQuery = db.BRAIDERs.Where(x => x.EmailBraider == email).First();
+            int braiderID = IDQuery.IDBraider;
+            List<SKILL> possibleStyles = db.SKILLS.Where(x => x.IDBraider == braiderID).ToList();
+            List<APPOINTMENT> validAppointments = new List<APPOINTMENT>();
+            
+            foreach(var appn in db.APPOINTMENTs.ToList())
+            {
+                foreach (var sk in possibleStyles)
+                {
+                    if(appn.IDStypeAppoint == sk.IDStyle)
+                    {
+                        validAppointments.Add(appn);
+                    }
+                }
+            }
+            
+            foreach(var appn in validAppointments.ToList())
+            {
+                foreach(var job in db.JOBDONEs)
+                {
+                    if(appn.IDAppoint == job.IDAppoint)
+                    {
+                        validAppointments.Remove(appn);
+                    }
+                }
+            }
+
+            return View(validAppointments);
         }
 
         public ActionResult StartJob(int appnID)

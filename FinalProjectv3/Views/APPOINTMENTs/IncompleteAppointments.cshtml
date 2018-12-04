@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BraiderLayout.cshtml";
 }
 
 <h2>Appointments</h2>
@@ -14,7 +15,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
-            
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BeginnTimeAppoint)
@@ -28,28 +29,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateAppoint)
-        </td>
-        <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAppoint)
+            </td>
+            <td>
 
-            @if ((bool)item.AddTakeOffAppoint) { <div>Yes</div>} else { <div>No</div>}
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeginnTimeAppoint)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLIENT.FnameClient)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.STYLE.DesigStyle)
-        </td>
-        <td>
-            @Html.ActionLink("Start Job", "StartJob", new {appnID = item.IDAppoint })
-        </td>
-    </tr>
-}
+                @if ((bool)item.AddTakeOffAppoint)
+                {<div>Yes</div>}
+                else
+                { <div>No</div>}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeginnTimeAppoint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CLIENT.FnameClient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STYLE.DesigStyle)
+            </td>
+            <td>
+                @Html.ActionLink("Start Job", "StartJob", new { appnID = item.IDAppoint })
+            </td>
+        </tr>
+    }
 
 </table>

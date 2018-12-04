@@ -178,7 +178,7 @@ namespace FinalProjectv3.Controllers
            * form["item.IDStyle"] is a comma separated list string of integer values for each id
            * Separate the string by the commas, parseInt the styleIDs and use them to create Skills      
             */
-            string[] isSkill = form["isSkill"].Split(',');
+            string[] isSkill = form["item.isSkill"].Split(',');
             string[] styleIDs = form["item.IDStyle"].Split(',');
             for (int i = 0; i <= styleIDs.Length; i++)
             {
@@ -215,7 +215,7 @@ namespace FinalProjectv3.Controllers
             var currentUser = db.BRAIDERs.Where(x => x.EmailBraider == email).First();
 
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Details", "BRAIDERs", new {id = currentUser.IDBraider});
         }
     }
 }

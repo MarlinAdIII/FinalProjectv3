@@ -42,7 +42,7 @@
                     <img src="@Url.Content(item.PictureStyle)" alt="Image" height="50" width="50" />
                 </td>
                 <td>
-                    @Html.CheckBox("isSkill")
+                    @Html.CheckBoxFor(modelItem => item.isSkill)
                     @Html.HiddenFor(model => item.IDStyle)
                 </td>
             </tr>
