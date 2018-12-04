@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -16,7 +17,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AddTakeOffAppoint)
-            
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BeginnTimeAppoint)
@@ -27,10 +28,8 @@
         <th>
             @Html.DisplayNameFor(model => model.STYLE.DesigStyle)
         </th>
-        <th>
-            Appointment Completed?
-        </th>
-        
+     
+
     </tr>
 
 @foreach (var item in Model) {
@@ -58,9 +57,7 @@
             @Html.DisplayFor(modelItem => item.STYLE.DesigStyle)
 
         </td>
-        <td>
-            @Html.Partial("_JobsDone)
-        </td>
+   
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IDAppoint }) |
             @Html.ActionLink("Details", "Details", new { id=item.IDAppoint }) |

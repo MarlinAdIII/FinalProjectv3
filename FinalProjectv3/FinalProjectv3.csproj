@@ -198,11 +198,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\APPOINTMENTsController.cs" />
-    <Compile Include="Controllers\AspNetRolesController.cs" />
     <Compile Include="Controllers\BRAIDERsController.cs" />
     <Compile Include="Controllers\CLIENTsController.cs" />
     <Compile Include="Controllers\COMPANiesController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\DISCOUNTsController.cs" />
     <Compile Include="Controllers\HAIRController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -454,7 +452,6 @@
     <Content Include="Views\AspNetRoles\Details.cshtml" />
     <Content Include="Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Index.cshtml" />
-    <Content Include="Views\Shared\_JobsDone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

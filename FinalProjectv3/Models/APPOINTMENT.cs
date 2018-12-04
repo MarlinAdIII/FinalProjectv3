@@ -43,6 +43,7 @@ namespace FinalProjectv3.Models
         [Display(Name = "Begin Time:")]
         public Nullable<System.TimeSpan> BeginnTimeAppoint { get; set; }
 
+        
       
         public virtual CLIENT CLIENT { get; set; }
 

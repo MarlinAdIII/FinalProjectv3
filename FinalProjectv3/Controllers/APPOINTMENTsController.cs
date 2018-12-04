@@ -18,6 +18,7 @@ namespace FinalProjectv3.Controllers
         // GET: APPOINTMENTs
         public ActionResult Index()
         {
+        
             var aPPOINTMENTs = db.APPOINTMENTs.Include(a => a.CLIENT).Include(a => a.STYLE);
             return View(aPPOINTMENTs.ToList());
         }
