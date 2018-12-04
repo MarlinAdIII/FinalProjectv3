@@ -32,8 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HairProvStyle)
-        </dd>
+            @if ((bool)Model.HairProvStyle) { <div>Yes</div>}else{<div>No</div>}</dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.PriceStyle)
