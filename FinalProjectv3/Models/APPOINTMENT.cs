@@ -23,18 +23,23 @@ namespace FinalProjectv3.Models
 
         public int IDAppoint { get; set; }
 
+        [Required]
         [Display(Name = "Client Name")]
         public int IDClientAppoint { get; set; }
 
+        [Required]
         [Display(Name = "Style:")]
         public byte IDStypeAppoint { get; set; }
 
+        [Required]
         [Display(Name = "Date and Time:")]
         public System.DateTime DateAppoint { get; set; }
-
+         
+        [Required]
         [Display(Name = "Remove Existing Hair?")]
         public Nullable<bool> AddTakeOffAppoint { get; set; }
 
+        [Required]
         [Display(Name = "Begin Time:")]
         public Nullable<System.TimeSpan> BeginnTimeAppoint { get; set; }
 

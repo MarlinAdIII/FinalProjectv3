@@ -23,8 +23,11 @@
         </dt>
 
         <dd>
-            @if ((bool)Model.AddTakeOffAppoint) { <div>Yes</div>}
+            @if(Model.AddTakeOffAppoint != null)
+            {
+            if ((bool)Model.AddTakeOffAppoint) { <div>Yes</div>}
             else { <div>No</div>}
+            }
         </dd>
 
         <dt>

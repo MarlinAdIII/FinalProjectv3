@@ -327,6 +327,8 @@
     <Content Include="Images\boxBraid1.jpg" />
     <Content Include="Images\cornRow1.jpg" />
     <Content Include="Images\fauxLocks1.jpg" />
+    <Content Include="Images\FLWDVZHIPH4PV4U.LARGE.jpg" />
+    <Content Include="Images\store.jpg" />
     <Content Include="Images\senegaleseTwist1.jpg" />
     <Content Include="Models\FPModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -440,6 +442,11 @@
     <Content Include="Views\DISCOUNTs\Details.cshtml" />
     <Content Include="Views\DISCOUNTs\Edit.cshtml" />
     <Content Include="Views\DISCOUNTs\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_BraiderLayout.cshtml" />
+    <Content Include="Views\Shared\_ClientLayout.cshtml" />
+    <Content Include="Views\Shared\_CreateLayout.cshtml" />
+    <Content Include="Views\Account\RegisterBraider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -39,8 +39,7 @@
                     @Html.DisplayFor(modelItem => item.DescriptStyle)
                 </td>
                 <td>
-                    @{string stylePath = item.PictureStyle; }
-                    <img src=stylePath style="width:50%">
+                    <img src="@Url.Content(item.PictureStyle)" alt="Image" height="50" width="50" />
                 </td>
                 <td>
                     @Html.CheckBox("isSkill")

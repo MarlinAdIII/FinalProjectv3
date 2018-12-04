@@ -36,8 +36,14 @@
             @Html.DisplayFor(modelItem => item.DateAppoint)
         </td>
         <td>
-
-            @if ((bool)item.AddTakeOffAppoint) { <div>Yes</div>} else { <div>No</div>}
+            @if (item.AddTakeOffAppoint != null)
+            {
+            if ((bool)item.AddTakeOffAppoint)
+            { <div>Yes</div>}
+            else
+            { <div>No</div>}
+            }
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BeginnTimeAppoint)
